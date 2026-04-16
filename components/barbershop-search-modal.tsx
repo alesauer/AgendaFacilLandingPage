@@ -37,20 +37,18 @@ export function BarbershopSearchModal({ isOpen, onClose }: BarbershopSearchModal
       setIsLoading(true)
       try {
         const { data, error } = await supabase
-          .from('barbearia')
+          .from('barbearias')
           .select('id, nome, slug')
           .ilike('nome', `%${searchTerm}%`)
           .limit(10)
 
         if (error) {
-          console.error('[v0] Erro ao buscar barbearias:', error)
           setBarbearias([])
         } else {
           setBarbearias(data || [])
           setIsDropdownOpen(true)
         }
       } catch (err) {
-        console.error('[v0] Erro na busca:', err)
         setBarbearias([])
       } finally {
         setIsLoading(false)
@@ -98,7 +96,7 @@ export function BarbershopSearchModal({ isOpen, onClose }: BarbershopSearchModal
 
   const handleGoToBarbearia = () => {
     if (selectedBarbearia) {
-      window.location.href = `http://127.0.0.1/${selectedBarbearia.slug}`
+      window.open(`http://127.0.0.1:3000/${selectedBarbearia.slug}`, '_blank')
     }
   }
 
@@ -113,7 +111,7 @@ export function BarbershopSearchModal({ isOpen, onClose }: BarbershopSearchModal
       />
       
       {/* Modal */}
-      <div className="relative z-10 w-full max-w-md rounded-2xl bg-background shadow-2xl border border-border">
+      <div className="relative z-10 w-full max-w-md rounded-2xl bg-background shadow-2xl border border-border my-auto">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border px-6 py-4">
           <div className="flex items-center gap-3">
@@ -200,7 +198,7 @@ export function BarbershopSearchModal({ isOpen, onClose }: BarbershopSearchModal
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">{selectedBarbearia.nome}</p>
-                  <p className="text-sm text-muted-foreground">127.0.0.1/{selectedBarbearia.slug}</p>
+                  <p className="text-sm text-muted-foreground">127.0.0.1:3000/{selectedBarbearia.slug}</p>
                 </div>
               </div>
             </div>
