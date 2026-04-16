@@ -74,7 +74,7 @@ export function WhatsAppReminders() {
           {/* Visual - Video */}
           <div className="relative flex items-center justify-center order-first lg:order-last py-8 lg:py-0">
             <div 
-              className="w-full max-w-[220px] sm:max-w-sm rounded-3xl bg-gradient-to-b from-[#2563ea]/15 to-muted/30 p-2 sm:p-3 overflow-hidden shadow-2xl transition-transform hover:scale-105"
+              className="w-full max-w-[140px] sm:max-w-[180px] rounded-3xl bg-gradient-to-b from-[#2563ea]/15 to-muted/30 p-1.5 sm:p-2 overflow-hidden shadow-2xl transition-transform hover:scale-105"
               style={{ 
                 transform: 'perspective(800px) rotateY(-3deg) rotateX(1deg)',
               }}
