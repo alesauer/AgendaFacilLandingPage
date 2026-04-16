@@ -6,6 +6,7 @@ import { Menu, X, Scissors } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { OnboardingModal } from "@/components/onboarding-modal"
+import { BarbershopSearchModal } from "@/components/barbershop-search-modal"
 
 const navigation = [
   { name: "Funcionalidades", href: "#funcionalidades" },
@@ -17,6 +18,7 @@ const navigation = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false)
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -45,9 +47,12 @@ export function Header() {
         {/* Desktop CTA */}
         <div className="hidden items-center gap-4 md:flex">
           <ThemeToggle />
-          <a href="#" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+          <button 
+            onClick={() => setIsSearchModalOpen(true)}
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
             Entrar
-          </a>
+          </button>
           <Button 
             size="sm" 
             className="bg-[#2563ea] font-semibold text-white hover:bg-[#1d4ed8]"
@@ -94,9 +99,15 @@ export function Header() {
               <span className="text-sm text-muted-foreground">Tema</span>
               <ThemeToggle />
             </div>
-            <a href="#" className="block rounded-lg px-3 py-2 text-base font-medium text-muted-foreground hover:bg-secondary hover:text-foreground">
+            <button 
+              onClick={() => {
+                setMobileMenuOpen(false)
+                setIsSearchModalOpen(true)
+              }}
+              className="block w-full text-left rounded-lg px-3 py-2 text-base font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
+            >
               Entrar
-            </a>
+            </button>
             <Button 
               className="w-full bg-[#2563ea] font-semibold text-white hover:bg-[#1d4ed8]"
               onClick={() => {
@@ -111,6 +122,7 @@ export function Header() {
       </div>
       
       <OnboardingModal isOpen={isOnboardingOpen} onClose={() => setIsOnboardingOpen(false)} />
+      <BarbershopSearchModal isOpen={isSearchModalOpen} onClose={() => setIsSearchModalOpen(false)} />
     </header>
   )
 }
