@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Clock, TrendingUp, Users } from "lucide-react"
 import { VideoModal } from "@/components/video-modal"
 import { OnboardingModal } from "@/components/onboarding-modal"
-import Image from "next/image"
 
 export function Hero() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
@@ -20,86 +19,53 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="mb-4 inline-flex items-center rounded-full border border-[#2563ea]/30 bg-[#2563ea]/10 px-3 py-1 text-xs font-semibold text-[#2563ea]">
+            +2.500 barbearias ja confiam
+          </span>
 
-          {/* Left — Copy */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <span className="mb-4 inline-flex items-center rounded-full border border-[#2563ea]/30 bg-[#2563ea]/10 px-3 py-1 text-xs font-semibold text-[#2563ea]">
-              +2.500 barbearias ja confiam
-            </span>
+          <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Pare de perder dinheiro com{" "}
+            <span className="text-[#2563ea]">horarios vazios</span> na sua barbearia
+          </h1>
 
-            <h1 className="max-w-xl text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Pare de perder dinheiro com{" "}
-              <span className="text-[#2563ea]">horarios vazios</span> na sua barbearia
-            </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+            Sua agenda lotada e sua operacao organizada — automaticamente.
+            Menos tempo na gestao, mais tempo no atendimento.
+          </p>
 
-            <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
-              Sua agenda lotada e sua operacao organizada — automaticamente.
-              Menos tempo na gestao, mais tempo no atendimento.
-            </p>
-
-            {/* CTAs */}
-            <div className="mt-10 flex w-full flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
-                onClick={() => setIsOnboardingOpen(true)}
-              >
-                Comecar teste gratis
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-14 border-[#2563ea] px-8 text-base font-semibold text-[#2563ea] hover:bg-[#2563ea] hover:text-white"
-                onClick={() => setIsVideoOpen(true)}
-              >
-                Ver demonstracao
-              </Button>
-            </div>
-
-            {/* Social Proof */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground lg:justify-start">
-              <div className="flex items-center gap-2">
-                <Users className="h-4 w-4 text-[#2563ea]" />
-                <span><strong className="text-foreground">+2.500</strong> barbearias</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4 text-[#2563ea]" />
-                <span><strong className="text-foreground">+150 mil</strong> agendamentos/mes</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="h-4 w-4 text-[#2563ea]" />
-                <span><strong className="text-foreground">-70%</strong> faltas</span>
-              </div>
-            </div>
+          {/* CTAs */}
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button
+              size="lg"
+              className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
+              onClick={() => setIsOnboardingOpen(true)}
+            >
+              Comecar teste gratis
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="h-14 border-[#2563ea] px-8 text-base font-semibold text-[#2563ea] hover:bg-[#2563ea] hover:text-white"
+              onClick={() => setIsVideoOpen(true)}
+            >
+              Ver demonstracao
+            </Button>
           </div>
 
-          {/* Right — Image */}
-          <div className="relative flex items-center justify-center">
-            {/* Glow behind image */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-64 w-64 rounded-full bg-[#2563ea]/20 blur-3xl lg:h-96 lg:w-96" />
+          {/* Social Proof */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4 text-[#2563ea]" />
+              <span><strong className="text-foreground">+2.500</strong> barbearias</span>
             </div>
-
-            <style jsx>{`
-              @keyframes float {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-12px); }
-              }
-              .float-image {
-                animation: float 5s ease-in-out infinite;
-              }
-            `}</style>
-
-            <div className="float-image relative z-10 w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[480px]">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/BarbeirosAppTransparente-BBC0sn2BKzFlhpO8G0hhYlHbTfEuxm.png"
-                alt="Interface do Barbeiros.app com camadas de funcionalidades"
-                width={480}
-                height={520}
-                className="w-full h-auto object-contain drop-shadow-2xl"
-                priority
-              />
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-[#2563ea]" />
+              <span><strong className="text-foreground">+150 mil</strong> agendamentos/mes</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <TrendingUp className="h-4 w-4 text-[#2563ea]" />
+              <span><strong className="text-foreground">-70%</strong> faltas</span>
             </div>
           </div>
         </div>
