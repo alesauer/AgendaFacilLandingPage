@@ -93,7 +93,7 @@ export function Hero() {
 
             <div className="float-image relative z-10 w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[480px] drop-shadow-2xl">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ImagemBarbeirosappCanvas-0GwCfvMsDSfq47pTjopp3sx8UjHtqr.jpg"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ImagemBarbeirosapp-R78fES6JfcvxXCgDr5DzhaDFHfVxh3.jpg"
                 alt="Interface do Barbeiros.app com camadas de funcionalidades"
                 width={480}
                 height={520}
