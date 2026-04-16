@@ -146,7 +146,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
                 id="yt-player"
                 width="100%" 
                 height="100%" 
-                src="https://www.youtube.com/embed/R0wqvBMQoWc?si=qfD0qzdq7d23HGMy&controls=0&autoplay=1&enablejsapi=1" 
+                src="https://www.youtube.com/embed/UDBPX7GvdLY?si=-fufTkZ9PAK9OeV4&controls=0&autoplay=1&enablejsapi=1" 
                 title="Demonstracao Barbeiros.app" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
