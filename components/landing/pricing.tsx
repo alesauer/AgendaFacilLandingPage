@@ -59,14 +59,14 @@ export function Pricing() {
   
   const getPrice = (monthlyPrice: number) => {
     if (isAnnual) {
-      return monthlyPrice * 0.9 // 10% de desconto
+      return monthlyPrice * 0.75 // 25% de desconto
     }
     return monthlyPrice
   }
 
   const getOriginalPrice = (originalPrice: number) => {
     if (isAnnual) {
-      return originalPrice * 0.9
+      return originalPrice * 0.75
     }
     return originalPrice
   }
@@ -118,7 +118,7 @@ export function Pricing() {
               Anual
             </span>
             <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700 dark:bg-green-900/30 dark:text-green-400">
-              -10%
+              -25%
             </span>
           </div>
         </div>

@@ -9,60 +9,70 @@ import { OnboardingModal } from "@/components/onboarding-modal"
 export function Hero() {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false)
+
   return (
-    <section className="relative overflow-hidden bg-background py-20 lg:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center">
-          {/* Big Promise */}
-          <h1 className="max-w-4xl text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+    <section className="relative overflow-hidden bg-background py-16 lg:py-28">
+      {/* Background glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -right-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#2563ea]/10 blur-[120px]" />
+        <div className="absolute -left-40 bottom-0 h-[400px] w-[400px] rounded-full bg-[#2563ea]/5 blur-[100px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="mb-4 inline-flex items-center rounded-full border border-[#2563ea]/30 bg-[#2563ea]/10 px-3 py-1 text-xs font-semibold text-[#2563ea]">
+            +2.500 barbearias ja confiam
+          </span>
+
+          <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Pare de perder dinheiro com{" "}
-            <span className="text-[#2563ea]">horários vazios</span> na sua barbearia
+            <span className="text-[#2563ea]">horarios vazios</span> na sua barbearia
           </h1>
 
-          <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Sua agenda lotada e sua operação organizada — automaticamente. 
-            Menos tempo na gestão, mais tempo no atendimento.
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+            Sua agenda lotada e sua operacao organizada — automaticamente.
+            Menos tempo na gestao, mais tempo no atendimento.
           </p>
 
           {/* CTAs */}
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button 
-              size="lg" 
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button
+              size="lg"
               className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
               onClick={() => setIsOnboardingOpen(true)}
             >
-              Começar teste grátis
+              Comecar teste gratis
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
+            <Button
+              size="lg"
+              variant="outline"
               className="h-14 border-[#2563ea] px-8 text-base font-semibold text-[#2563ea] hover:bg-[#2563ea] hover:text-white"
               onClick={() => setIsVideoOpen(true)}
             >
-              Ver demonstração
+              Ver demonstracao
             </Button>
           </div>
 
-          {/* Social Proof rápido */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
+          {/* Social Proof */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <Users className="h-5 w-5 text-primary" />
+              <Users className="h-4 w-4 text-[#2563ea]" />
               <span><strong className="text-foreground">+2.500</strong> barbearias</span>
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="h-5 w-5 text-primary" />
-              <span><strong className="text-foreground">+150 mil</strong> agendamentos/mês</span>
+              <Calendar className="h-4 w-4 text-[#2563ea]" />
+              <span><strong className="text-foreground">+150 mil</strong> agendamentos/mes</span>
             </div>
             <div className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-primary" />
-              <span><strong className="text-foreground">-70%</strong> faltas de clientes</span>
+              <TrendingUp className="h-4 w-4 text-[#2563ea]" />
+              <span><strong className="text-foreground">-70%</strong> faltas</span>
             </div>
           </div>
         </div>
 
-        {/* Stats - Mobile: marquee ticker / Desktop: grid */}
+        {/* Stats — Mobile: marquee / Desktop: grid */}
         <div className="mt-16 sm:mt-20">
-          {/* Mobile: Marquee ticker */}
+          {/* Mobile marquee */}
           <div className="relative overflow-hidden sm:hidden">
             <style jsx>{`
               @keyframes marquee-scroll {
@@ -73,7 +83,7 @@ export function Hero() {
                 animation: marquee-scroll 12s linear infinite;
               }
             `}</style>
-            <div className="marquee-track flex" style={{ width: 'fit-content' }}>
+            <div className="marquee-track flex" style={{ width: "fit-content" }}>
               <div className="flex shrink-0 gap-8 px-4">
                 <StatItem value="20 dias" label="economizados/mes" />
                 <StatItem value="98%" label="menos no-shows" />
@@ -88,37 +98,18 @@ export function Hero() {
               </div>
             </div>
           </div>
-          
-          {/* Desktop: Grid cards */}
+
+          {/* Desktop grid */}
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard 
-              icon={<Calendar className="h-6 w-6" />}
-              value="20 dias"
-              label="economizados por mes"
-            />
-            <StatCard 
-              icon={<Clock className="h-6 w-6" />}
-              value="98%"
-              label="menos no-shows"
-            />
-            <StatCard 
-              icon={<TrendingUp className="h-6 w-6" />}
-              value="+35%"
-              label="aumento no faturamento"
-            />
-            <StatCard 
-              icon={<Users className="h-6 w-6" />}
-              value="6x"
-              label="mais clientes recorrentes"
-            />
+            <StatCard icon={<Calendar className="h-6 w-6" />} value="20 dias" label="economizados por mes" />
+            <StatCard icon={<Clock className="h-6 w-6" />} value="98%" label="menos no-shows" />
+            <StatCard icon={<TrendingUp className="h-6 w-6" />} value="+35%" label="aumento no faturamento" />
+            <StatCard icon={<Users className="h-6 w-6" />} value="6x" label="mais clientes recorrentes" />
           </div>
         </div>
       </div>
 
-      {/* Video Modal */}
       <VideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
-      
-      {/* Onboarding Modal */}
       <OnboardingModal isOpen={isOnboardingOpen} onClose={() => setIsOnboardingOpen(false)} />
     </section>
   )
