@@ -74,9 +74,9 @@ export function WhatsAppReminders() {
           {/* Visual - Video */}
           <div className="relative flex items-center justify-center order-first lg:order-last py-8 lg:py-0">
             <div 
-              className="w-full max-w-[180px] sm:max-w-[220px] rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#2563ea]/20 to-muted/40 p-1 sm:p-1.5 overflow-hidden shadow-2xl transition-transform hover:scale-105"
+              className="w-full max-w-xs sm:max-w-md rounded-3xl bg-gradient-to-b from-[#2563ea]/15 to-muted/30 p-2 sm:p-3 overflow-hidden shadow-2xl transition-transform hover:scale-105"
               style={{ 
-                transform: 'perspective(1000px) rotateY(-6deg) rotateX(3deg)',
+                transform: 'perspective(800px) rotateY(-3deg) rotateX(1deg)',
               }}
             >
               <video
@@ -84,7 +84,7 @@ export function WhatsAppReminders() {
                 muted
                 loop
                 playsInline
-                className="w-full h-auto rounded-xl sm:rounded-2xl shadow-inner"
+                className="w-full h-auto rounded-2xl shadow-inner"
               >
                 <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/barbeiros-8cWD9l5WBs9WnokQI0zuX9HC6XdfJ1.mp4" type="video/mp4" />
                 Seu navegador nao suporta video.
