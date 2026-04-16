@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Bell, Clock } from "lucide-react"
+import { MessageCircle, Bell, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { OnboardingModal } from "@/components/onboarding-modal"
 
