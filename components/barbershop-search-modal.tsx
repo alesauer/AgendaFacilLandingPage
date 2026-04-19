@@ -96,7 +96,7 @@ export function BarbershopSearchModal({ isOpen, onClose }: BarbershopSearchModal
 
   const handleGoToBarbearia = () => {
     if (selectedBarbearia) {
-      window.open(`http://127.0.0.1:3000/${selectedBarbearia.slug}`, '_blank')
+      window.open(`https://app.barbearia.app/${selectedBarbearia.slug}`, '_blank')
     }
   }
 
@@ -198,7 +198,7 @@ export function BarbershopSearchModal({ isOpen, onClose }: BarbershopSearchModal
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">{selectedBarbearia.nome}</p>
-                  <p className="text-sm text-muted-foreground">127.0.0.1:3000/{selectedBarbearia.slug}</p>
+                  <p className="text-sm text-muted-foreground">app.barbearia.app/{selectedBarbearia.slug}</p>
                 </div>
               </div>
             </div>
