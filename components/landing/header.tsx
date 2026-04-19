@@ -58,7 +58,7 @@ export function Header() {
             className="bg-[#2563ea] font-semibold text-white hover:bg-[#1d4ed8]"
             onClick={() => setIsOnboardingOpen(true)}
           >
-            Teste gratis
+            Teste grátis
           </Button>
         </div>
 
@@ -115,7 +115,7 @@ export function Header() {
                 setIsOnboardingOpen(true)
               }}
             >
-              Teste gratis
+              Teste grátis
             </Button>
           </div>
         </div>

@@ -22,102 +22,102 @@ import { cn } from "@/lib/utils"
 const features = [
   {
     icon: Calendar,
-    title: "Agenda inteligente que trabalha por voce",
-    description: "Organizacao automatica da agenda em blocos de 15 minutos com calculo inteligente de disponibilidade.",
+    title: "Agenda inteligente que trabalha por você",
+    description: "Organização automática da agenda em blocos de 15 minutos com cálculo inteligente de disponibilidade.",
     benefits: [
-      "Evita conflitos e sobreposicao de horarios",
-      "Visual simples e rapido para voce e sua equipe",
-      "Menos erros, menos horarios vazios"
+      "Evita conflitos e sobreposição de horários",
+      "Visual simples e rápido para você e sua equipe",
+      "Menos erros, menos horários vazios"
     ],
     result: "Mais atendimentos por dia"
   },
   {
     icon: Users,
-    title: "Gestao completa de clientes (CRM)",
-    description: "Cadastro com telefone, e-mail e historico completo de cada cliente.",
+    title: "Gestão completa de clientes (CRM)",
+    description: "Cadastro com telefone, e-mail e histórico completo de cada cliente.",
     benefits: [
-      "Acompanhamento de comportamento e frequencia",
-      "Base organizada para fidelizacao",
-      "Historico de servicos e preferencias"
+      "Acompanhamento de comportamento e frequência",
+      "Base organizada para fidelização",
+      "Histórico de serviços e preferências"
     ],
     result: "Clientes voltam mais"
   },
   {
     icon: DollarSign,
-    title: "Controle financeiro sem complicacao",
-    description: "Visao clara do faturamento da barbearia em tempo real.",
+    title: "Controle financeiro sem complicação",
+    description: "Visão clara do faturamento da barbearia em tempo real.",
     benefits: [
       "Acompanhamento de desempenho por profissional",
-      "Controle por perfil (admin e funcionarios)",
-      "Relatorios automaticos"
+      "Controle por perfil (admin e funcionários)",
+      "Relatórios automáticos"
     ],
-    result: "Decisoes baseadas em numeros"
+    result: "Decisões baseadas em números"
   },
   {
     icon: Scissors,
-    title: "Gestao de profissionais e comissoes",
-    description: "Cadastro completo da equipe com definicao de comissao por profissional.",
+    title: "Gestão de profissionais e comissões",
+    description: "Cadastro completo da equipe com definição de comissão por profissional.",
     benefits: [
       "Controle de status e atividade",
-      "Calculo automatico de comissoes",
+      "Cálculo automático de comissões",
       "Agenda individual por barbeiro"
     ],
     result: "Equipe mais organizada e motivada"
   },
   {
     icon: Bell,
-    title: "Automacao e notificacoes inteligentes",
-    description: "Confirmacoes e lembretes automaticos por WhatsApp.",
+    title: "Automação e notificações inteligentes",
+    description: "Confirmações e lembretes automáticos por WhatsApp.",
     benefits: [
-      "Notificacoes antes do horario marcado",
-      "Confirmacao com um clique",
-      "Reducao drastica de faltas (no-show)"
+      "Notificações antes do horário marcado",
+      "Confirmação com um clique",
+      "Redução drástica de faltas (no-show)"
     ],
-    result: "Agenda mais cheia e menos prejuizo"
+    result: "Agenda mais cheia e menos prejuízo"
   },
   {
     icon: Palette,
     title: "Sua marca, sua identidade",
-    description: "Personalizacao com logo e cores da sua barbearia.",
+    description: "Personalização com logo e cores da sua barbearia.",
     benefits: [
       "Tela de agendamento customizada",
-      "Experiencia profissional para seus clientes",
+      "Experiência profissional para seus clientes",
       "Link exclusivo para sua barbearia"
     ],
     result: "Mais credibilidade e valor percebido"
   },
   {
     icon: BarChart3,
-    title: "Dashboard com visao do negocio",
-    description: "Indicadores de desempenho e insights para tomada de decisao.",
+    title: "Dashboard com visão do negócio",
+    description: "Indicadores de desempenho e insights para tomada de decisão.",
     benefits: [
       "Acompanhamento de crescimento",
-      "Metricas por periodo e profissional",
-      "Identificacao de oportunidades"
+      "Métricas por período e profissional",
+      "Identificação de oportunidades"
     ],
-    result: "Voce decide com dados, nao com achismo"
+    result: "Você decide com dados, não com achismo"
   },
   {
     icon: Shield,
-    title: "Seguranca e estrutura profissional",
-    description: "Dados isolados por barbearia com controle de acesso por tipo de usuario.",
+    title: "Segurança e estrutura profissional",
+    description: "Dados isolados por barbearia com controle de acesso por tipo de usuário.",
     benefits: [
       "Sistema seguro e preparado para crescer",
-      "Backup automatico dos dados",
+      "Backup automático dos dados",
       "Acesso de qualquer dispositivo"
     ],
-    result: "Tranquilidade para focar no seu negocio"
+    result: "Tranquilidade para focar no seu negócio"
   },
   {
     icon: Link2,
-    title: "Integracoes que potencializam",
-    description: "Integracao com WhatsApp para comunicacao automatica.",
+    title: "Integrações que potencializam",
+    description: "Integração com WhatsApp para comunicação automática.",
     benefits: [
       "Envio de e-mails transacionais",
       "Base preparada para pagamentos",
-      "API para integracoes futuras"
+      "API para integrações futuras"
     ],
-    result: "Mais automacao e menos trabalho manual"
+    result: "Mais automação e menos trabalho manual"
   },
 ]
 
@@ -138,7 +138,7 @@ export function Features() {
             Funcionalidades
           </span>
           <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Tudo que voce precisa para gerenciar sua barbearia em um so lugar
+            Tudo que você precisa para gerenciar sua barbearia em um só lugar
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
             Do agendamento ao financeiro, o Barbeiros.app centraliza sua operacao e 
@@ -228,14 +228,14 @@ export function Features() {
         {/* Bottom CTA */}
         <div className="mt-12 text-center">
           <p className="mb-6 text-lg text-muted-foreground">
-            Tudo isso funcionando em poucos minutos. Sem instalacao, sem complicacao.
+            Tudo isso funcionando em poucos minutos. Sem instalação, sem complicação.
           </p>
           <Button 
             size="lg" 
             className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
             onClick={() => setIsOnboardingOpen(true)}
           >
-            Comecar teste gratis
+            Começar teste grátis
           </Button>
         </div>
       </div>

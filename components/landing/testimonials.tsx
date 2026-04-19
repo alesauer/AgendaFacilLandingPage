@@ -7,14 +7,14 @@ const videoTestimonials = [
   {
     name: "Marcos Oliveira",
     role: "Dono da Barbearia Premium",
-    quote: "O Barbeiros.app e um aplicativo confiavel! Nele faco toda a gestao dos meus negocios: gestao financeira, de estoque e de produto!",
+    quote: "O Barbeiros.app é um aplicativo confiável! Nele faço toda a gestão dos meus negócios: gestão financeira, de estoque e de produto!",
     videoId: "0RJkmrYwLmQ",
     thumbnail: `https://img.youtube.com/vi/0RJkmrYwLmQ/maxresdefault.jpg`
   },
   {
     name: "Rafael Santos",
     role: "CEO e fundador de Studio de Beleza",
-    quote: "Agendamento online e uma das funcoes mais importantes, pois meu cliente consegue fazer agendamento mesmo enquanto a barbearia esta fechada!",
+    quote: "Agendamento online é uma das funções mais importantes, pois meu cliente consegue fazer agendamento mesmo enquanto a barbearia está fechada!",
     videoId: "qrmayYlOg1I",
     thumbnail: `https://img.youtube.com/vi/qrmayYlOg1I/maxresdefault.jpg`
   }
@@ -36,10 +36,10 @@ export function Testimonials() {
               O que dizem os donos de barbearias
             </h2>
             <p className="mt-4 sm:mt-6 text-pretty text-base sm:text-lg leading-relaxed text-muted-foreground">
-              Mais de 2.500 barbearias ja transformaram sua gestao com Barbeiros.app.
+              Mais de 2.500 barbearias já transformaram sua gestão com Barbeiros.app.
             </p>
             <p className="mt-4 text-pretty text-sm sm:text-base leading-relaxed text-muted-foreground">
-              Confira os depoimentos de clientes e parceiros que ja facilitaram a sua rotina de administracao com o Barbeiros.app.
+              Confira os depoimentos de clientes e parceiros que já facilitaram a sua rotina de administração com o Barbeiros.app.
             </p>
           </div>
 

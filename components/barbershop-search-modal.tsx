@@ -215,7 +215,7 @@ export function BarbershopSearchModal({ isOpen, onClose }: BarbershopSearchModal
 
           {/* Help text */}
           <p className="mt-4 text-center text-xs text-muted-foreground">
-            Ainda nao tem uma barbearia cadastrada?{" "}
+            Ainda não tem uma barbearia cadastrada?{" "}
             <button 
               onClick={onClose}
               className="text-[#2563ea] hover:underline font-medium"
