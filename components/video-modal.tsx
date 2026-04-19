@@ -147,7 +147,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
                 width="100%" 
                 height="100%" 
                 src="https://www.youtube.com/embed/UDBPX7GvdLY?si=-fufTkZ9PAK9OeV4&controls=0&autoplay=1&enablejsapi=1" 
-                title="Demonstracao Barbeiros.app" 
+                title="Demonstração Barbeiros.app" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
@@ -164,7 +164,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
                   onClick={handleCTAClick}
                   className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8] shadow-lg shadow-[#2563ea]/30"
                 >
-                  Comecar teste gratis
+                  Começar teste grátis
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>

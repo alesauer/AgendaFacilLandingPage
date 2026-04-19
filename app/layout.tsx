@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: 'Barbeiros.app - Pare de Perder Dinheiro com Horários Vazios',
-  description: 'Sistema completo de gestão para barbearias. Agenda lotada, operação organizada e faturamento previsível - tudo automaticamente.',
+  description: 'Sistema completo de gestão para barbearias. Agenda lotada, operação organizada e faturamento previsível — tudo automaticamente.',
   generator: 'v0.app',
   icons: {
     icon: [

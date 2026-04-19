@@ -21,17 +21,17 @@ export function Hero() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <span className="mb-4 inline-flex items-center rounded-full border border-[#2563ea]/30 bg-[#2563ea]/10 px-3 py-1 text-xs font-semibold text-[#2563ea]">
-            +2.500 barbearias ja confiam
+            +2.500 barbearias já confiam
           </span>
 
           <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Pare de perder dinheiro com{" "}
-            <span className="text-[#2563ea]">horarios vazios</span> na sua barbearia
+            <span className="text-[#2563ea]">horários vazios</span> na sua barbearia
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-            Sua agenda lotada e sua operacao organizada — automaticamente.
-            Menos tempo na gestao, mais tempo no atendimento.
+            Sua agenda lotada e sua operação organizada — automaticamente.
+            Menos tempo na gestão, mais tempo no atendimento.
           </p>
 
           {/* CTAs */}
@@ -41,7 +41,7 @@ export function Hero() {
               className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
               onClick={() => setIsOnboardingOpen(true)}
             >
-              Comecar teste gratis
+              Começar teste grátis
             </Button>
             <Button
               size="lg"
@@ -49,7 +49,7 @@ export function Hero() {
               className="h-14 border-[#2563ea] px-8 text-base font-semibold text-[#2563ea] hover:bg-[#2563ea] hover:text-white"
               onClick={() => setIsVideoOpen(true)}
             >
-              Ver demonstracao
+              Ver demonstração
             </Button>
           </div>
 
@@ -61,7 +61,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4 text-[#2563ea]" />
-              <span><strong className="text-foreground">+150 mil</strong> agendamentos/mes</span>
+              <span><strong className="text-foreground">+150 mil</strong> agendamentos/mês</span>
             </div>
             <div className="flex items-center gap-2">
               <TrendingUp className="h-4 w-4 text-[#2563ea]" />
@@ -85,13 +85,13 @@ export function Hero() {
             `}</style>
             <div className="marquee-track flex" style={{ width: "fit-content" }}>
               <div className="flex shrink-0 gap-8 px-4">
-                <StatItem value="20 dias" label="economizados/mes" />
+                <StatItem value="20 dias" label="economizados/mês" />
                 <StatItem value="98%" label="menos no-shows" />
                 <StatItem value="+35%" label="mais faturamento" />
                 <StatItem value="6x" label="clientes recorrentes" />
               </div>
               <div className="flex shrink-0 gap-8 px-4">
-                <StatItem value="20 dias" label="economizados/mes" />
+                <StatItem value="20 dias" label="economizados/mês" />
                 <StatItem value="98%" label="menos no-shows" />
                 <StatItem value="+35%" label="mais faturamento" />
                 <StatItem value="6x" label="clientes recorrentes" />
@@ -101,7 +101,7 @@ export function Hero() {
 
           {/* Desktop grid */}
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard icon={<Calendar className="h-6 w-6" />} value="20 dias" label="economizados por mes" />
+            <StatCard icon={<Calendar className="h-6 w-6" />} value="20 dias" label="economizados por mês" />
             <StatCard icon={<Clock className="h-6 w-6" />} value="98%" label="menos no-shows" />
             <StatCard icon={<TrendingUp className="h-6 w-6" />} value="+35%" label="aumento no faturamento" />
             <StatCard icon={<Users className="h-6 w-6" />} value="6x" label="mais clientes recorrentes" />

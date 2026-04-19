@@ -167,14 +167,14 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
           {currentStep === 1 && (
             <div className="space-y-4 sm:space-y-6">
               <div className="text-center">
-                <h2 className="text-xl sm:text-2xl font-bold text-white">Crie sua Conta Gratis</h2>
-                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-400">Leva menos de 1 minuto para comecar.</p>
+                <h2 className="text-xl sm:text-2xl font-bold text-white">Crie sua Conta Grátis</h2>
+                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-400">Leva menos de 1 minuto para começar.</p>
               </div>
 
               <div className="space-y-3 sm:space-y-4">
                 <div>
                   <label className="block text-xs sm:text-sm font-medium text-gray-300">
-                    Nome do Negocio ou Seu Nome <span className="text-red-500">*</span>
+                    Nome do Negócio ou Seu Nome <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -239,7 +239,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                       type="password"
                       value={senha}
                       onChange={(e) => setSenha(e.target.value)}
-                      placeholder="Minimo 6 caracteres"
+                      placeholder="Mínimo 6 caracteres"
                       className="mt-1.5 sm:mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea]"
                     />
                   </div>
@@ -253,7 +253,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
             <div className="space-y-4 sm:space-y-6">
               <div className="text-center">
                 <h2 className="text-xl sm:text-2xl font-bold text-white">Monte sua Equipe</h2>
-                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-400">Adicione os profissionais que trabalham com voce.</p>
+                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-400">Adicione os profissionais que trabalham com você.</p>
               </div>
 
               <div className="space-y-3 sm:space-y-4">
@@ -271,7 +271,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                         type="text"
                         value={prof.funcao}
                         onChange={(e) => updateProfissional(index, "funcao", e.target.value)}
-                        placeholder="Funcao (ex: Barbeiro)"
+                        placeholder="Função (ex: Barbeiro)"
                         className="w-full rounded-lg border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea]"
                       />
                     </div>
@@ -301,8 +301,8 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
           {currentStep === 3 && (
             <div className="space-y-4 sm:space-y-6">
               <div className="text-center">
-                <h2 className="text-xl sm:text-2xl font-bold text-white">Defina seus Horarios</h2>
-                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-400">Configure os dias e horarios de funcionamento.</p>
+                <h2 className="text-xl sm:text-2xl font-bold text-white">Defina seus Horários</h2>
+                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-400">Configure os dias e horários de funcionamento.</p>
               </div>
 
               <div className="space-y-4 sm:space-y-6">
@@ -331,7 +331,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-xs sm:text-sm font-medium text-gray-300">
-                      Horario de Abertura
+                      Horário de Abertura
                     </label>
                     <input
                       type="time"
@@ -343,7 +343,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
 
                   <div>
                     <label className="block text-xs sm:text-sm font-medium text-gray-300">
-                      Horario de Fechamento
+                      Horário de Fechamento
                     </label>
                     <input
                       type="time"
@@ -361,8 +361,8 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
           {currentStep === 4 && (
             <div className="space-y-4 sm:space-y-6">
               <div className="text-center">
-                <h2 className="text-xl sm:text-2xl font-bold text-white">Cadastre seus Servicos</h2>
-                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-400">Adicione os servicos que voce oferece.</p>
+                <h2 className="text-xl sm:text-2xl font-bold text-white">Cadastre seus Serviços</h2>
+                <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-400">Adicione os serviços que você oferece.</p>
               </div>
 
               <div className="space-y-3 sm:space-y-4">
@@ -373,7 +373,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                         type="text"
                         value={servico.nome}
                         onChange={(e) => updateServico(index, "nome", e.target.value)}
-                        placeholder="Nome do servico"
+                        placeholder="Nome do serviço"
                         className="w-full rounded-lg border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea]"
                       />
                       <div className="grid grid-cols-2 gap-2 sm:contents">
@@ -393,7 +393,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                           type="text"
                           value={servico.preco}
                           onChange={(e) => updateServico(index, "preco", e.target.value.replace(/\D/g, ""))}
-                          placeholder="Preco (R$)"
+                          placeholder="Preço (R$)"
                           className="w-full rounded-lg border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea]"
                         />
                       </div>
@@ -414,7 +414,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                   className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 py-2.5 sm:py-3 text-sm sm:text-base text-gray-400 transition-colors hover:border-[#2563ea] hover:text-[#2563ea]"
                 >
                   <Plus className="h-4 w-4 sm:h-5 sm:w-5" />
-                  Adicionar servico
+                  Adicionar serviço
                 </button>
               </div>
             </div>
@@ -439,7 +439,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
               onClick={handleNext}
               className="w-full sm:w-auto bg-[#2563ea] px-6 sm:px-8 text-white hover:bg-[#1d4ed8]"
             >
-              {currentStep === 4 ? "Finalizar Cadastro" : "Criar Conta e Avancar"}
+              {currentStep === 4 ? "Finalizar Cadastro" : "Criar Conta e Avançar"}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>

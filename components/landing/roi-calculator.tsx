@@ -52,7 +52,7 @@ export function ROICalculator() {
 
               <div>
                 <label className="block text-sm font-medium text-white/90">
-                  Ticket médio (R$)
+                  Ticket Médio (R$)
                 </label>
                 <input
                   type="range"

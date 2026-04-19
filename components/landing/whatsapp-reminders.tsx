@@ -38,8 +38,8 @@ export function WhatsAppReminders() {
               Lembretes que seus clientes realmente leem.
             </h2>
             <p className="mt-4 sm:mt-6 text-pretty text-base sm:text-lg leading-relaxed text-muted-foreground">
-              Esqueca o SMS que ninguem abre ou o e-mail que cai no spam. O Barbeiros.app 
-              envia notificacoes automaticas direto no WhatsApp do seu cliente, onde ele 
+              Esqueça o SMS que ninguém abre ou o e-mail que cai no spam. O Barbeiros.app 
+              envia notificações automáticas direto no WhatsApp do seu cliente, onde ele 
               passa o dia todo.
             </p>
 
@@ -65,7 +65,7 @@ export function WhatsAppReminders() {
               className="mt-8 sm:mt-10 h-12 sm:h-14 w-full sm:w-auto bg-[#2563ea] px-6 sm:px-8 text-sm sm:text-base font-semibold text-white hover:bg-[#1d4ed8]"
               onClick={() => setIsOnboardingOpen(true)}
             >
-              Comecar teste gratis
+              Começar teste grátis
             </Button>
             
             <OnboardingModal isOpen={isOnboardingOpen} onClose={() => setIsOnboardingOpen(false)} />
@@ -87,7 +87,7 @@ export function WhatsAppReminders() {
                 className="w-full h-auto rounded-2xl shadow-inner"
               >
                 <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/barbeiros-8cWD9l5WBs9WnokQI0zuX9HC6XdfJ1.mp4" type="video/mp4" />
-                Seu navegador nao suporta video.
+                Seu navegador não suporta vídeo.
               </video>
             </div>
           </div>
