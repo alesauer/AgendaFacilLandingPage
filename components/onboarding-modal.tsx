@@ -32,15 +32,15 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
   const isFormValid = nome.trim() !== "" && telefone.trim() !== "" && email.trim() !== ""
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Overlay */}
       <div 
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       />
       
       {/* Modal */}
-      <div className="relative z-10 w-full max-w-md overflow-hidden rounded-xl sm:rounded-2xl bg-[#0f172a] shadow-2xl">
+      <div className="relative z-[101] w-full max-w-md overflow-hidden rounded-xl sm:rounded-2xl bg-[#0f172a] shadow-2xl my-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
