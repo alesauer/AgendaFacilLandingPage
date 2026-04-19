@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -13,11 +14,13 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
   const [nome, setNome] = useState("")
   const [telefone, setTelefone] = useState("")
   const [email, setEmail] = useState("")
+  const [mounted, setMounted] = useState(false)
 
-  if (!isOpen) return null
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleSubmit = () => {
-    // Aqui você pode adicionar a lógica para enviar os dados
     console.log({ nome, telefone, email })
     onClose()
   }
@@ -31,8 +34,10 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
 
   const isFormValid = nome.trim() !== "" && telefone.trim() !== "" && email.trim() !== ""
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+  if (!isOpen || !mounted) return null
+
+  const modalContent = (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6">
       {/* Overlay */}
       <div 
         className="fixed inset-0 bg-black/70 backdrop-blur-sm"
@@ -40,7 +45,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       />
       
       {/* Modal */}
-      <div className="relative z-[101] w-full max-w-md overflow-hidden rounded-xl sm:rounded-2xl bg-[#0f172a] shadow-2xl my-auto">
+      <div className="relative z-[10000] w-full max-w-md overflow-hidden rounded-xl sm:rounded-2xl bg-[#0f172a] shadow-2xl">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -113,4 +118,6 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       </div>
     </div>
   )
+
+  return createPortal(modalContent, document.body)
 }
