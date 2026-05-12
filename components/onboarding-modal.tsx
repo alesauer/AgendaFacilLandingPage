@@ -65,20 +65,19 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       })
 
       const data: LeadResponse = await response.json()
-      console.log("[v0] Lead response:", { status: response.status, data })
 
-      if (response.ok && response.status === 201) {
+      if (response.status === 201 && data.success) {
+        // Lead criado com sucesso - sempre mostrar mensagem de sucesso
         toast({
           title: "Oba!",
-          description: "Você receberá instruções no WhatsApp para criar a sua barbearia!",
-          variant: "default"
+          description: "Você receberá instruções no WhatsApp para criar a sua barbearia!"
         })
         
-        if (data.data?.warning) {
-          toast({
-            title: "Informação",
-            description: data.data.warning,
-            variant: "default"
+        // Se whatsapp não foi enviado ou há warning, apenas logar (não mostrar erro)
+        if (data.data?.whatsapp_dispatched === false || data.data?.warning) {
+          console.warn("[Lead] WhatsApp dispatch info:", {
+            dispatched: data.data?.whatsapp_dispatched,
+            warning: data.data?.warning
           })
         }
         
@@ -87,6 +86,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
         setErrors({})
         onClose()
       } else {
+        // Falha na captura do lead (4xx/5xx sem criação)
         toast({
           title: "Erro",
           description: "Não foi possível criar sua conta. Tente novamente.",
