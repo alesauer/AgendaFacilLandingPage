@@ -53,7 +53,9 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
     setIsLoading(true)
     
     try {
-      const response = await fetch("https://app.barbeiros.app/api/leads", {
+      console.log("[v0] Form validation passed, submitting lead data")
+      
+      const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -63,15 +65,16 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       })
 
       const data: LeadResponse = await response.json()
+      console.log("[v0] Lead response:", { status: response.status, data })
 
       if (response.ok && response.status === 201) {
         toast({
           title: "Oba!",
-          description: "Você receberá instruções para criar sua Barbearia no WhatsApp.",
+          description: "Você receberá instruções no WhatsApp para criar a sua barbearia!",
           variant: "default"
         })
         
-        if (data.data.warning) {
+        if (data.data?.warning) {
           toast({
             title: "Informação",
             description: data.data.warning,
