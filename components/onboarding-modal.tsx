@@ -4,24 +4,102 @@ import { useState, useEffect } from "react"
 import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { toast } from "@/components/ui/use-toast"
 
 interface OnboardingModalProps {
   isOpen: boolean
   onClose: () => void
 }
 
+interface LeadResponse {
+  success: boolean
+  data: {
+    lead_id: string
+    message: string
+    whatsapp_dispatched: boolean
+    warning?: string
+  }
+}
+
 export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
   const [nome, setNome] = useState("")
   const [telefone, setTelefone] = useState("")
   const [mounted, setMounted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [errors, setErrors] = useState<{ nome?: string; telefone?: string }>({})
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const handleSubmit = () => {
-    console.log({ nome, telefone })
-    onClose()
+  const validateForm = () => {
+    const newErrors: { nome?: string; telefone?: string } = {}
+    
+    if (nome.trim().length < 2) {
+      newErrors.nome = "Nome deve ter pelo menos 2 caracteres"
+    }
+    
+    if (telefone.trim().length === 0) {
+      newErrors.telefone = "WhatsApp é obrigatório"
+    }
+    
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = async () => {
+    if (!validateForm()) return
+
+    setIsLoading(true)
+    
+    try {
+      const response = await fetch("https://app.barbeiros.app/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: nome.trim(),
+          whatsapp: telefone.trim()
+        })
+      })
+
+      const data: LeadResponse = await response.json()
+
+      if (response.ok && response.status === 201) {
+        toast({
+          title: "Oba!",
+          description: "Você receberá instruções para criar sua Barbearia no WhatsApp.",
+          variant: "default"
+        })
+        
+        if (data.data.warning) {
+          toast({
+            title: "Informação",
+            description: data.data.warning,
+            variant: "default"
+          })
+        }
+        
+        setNome("")
+        setTelefone("")
+        setErrors({})
+        onClose()
+      } else {
+        toast({
+          title: "Erro",
+          description: "Não foi possível criar sua conta. Tente novamente.",
+          variant: "destructive"
+        })
+      }
+    } catch (error) {
+      console.error("[v0] Error submitting form:", error)
+      toast({
+        title: "Erro",
+        description: "Houve um erro ao processar sua solicitação. Tente novamente.",
+        variant: "destructive"
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const formatTelefone = (value: string) => {
@@ -31,7 +109,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
     return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`
   }
 
-  const isFormValid = nome.trim() !== "" && telefone.trim() !== ""
+  const isFormValid = nome.trim().length >= 2 && telefone.trim().length > 0
 
   if (!isOpen || !mounted) return null
 
@@ -68,10 +146,19 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
               <input
                 type="text"
                 value={nome}
-                onChange={(e) => setNome(e.target.value)}
+                onChange={(e) => {
+                  setNome(e.target.value)
+                  if (errors.nome) setErrors({ ...errors, nome: undefined })
+                }}
                 placeholder="Seu nome completo"
-                className="mt-1.5 sm:mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea]"
+                disabled={isLoading}
+                className={`mt-1.5 sm:mt-2 w-full rounded-lg border ${
+                  errors.nome ? "border-red-500" : "border-white/10"
+                } bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea] disabled:opacity-50`}
               />
+              {errors.nome && (
+                <p className="mt-1 text-xs text-red-500">{errors.nome}</p>
+              )}
             </div>
 
             <div>
@@ -81,20 +168,29 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
               <input
                 type="tel"
                 value={telefone}
-                onChange={(e) => setTelefone(formatTelefone(e.target.value))}
+                onChange={(e) => {
+                  setTelefone(formatTelefone(e.target.value))
+                  if (errors.telefone) setErrors({ ...errors, telefone: undefined })
+                }}
                 placeholder="(00) 00000-0000"
                 maxLength={15}
-                className="mt-1.5 sm:mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea]"
+                disabled={isLoading}
+                className={`mt-1.5 sm:mt-2 w-full rounded-lg border ${
+                  errors.telefone ? "border-red-500" : "border-white/10"
+                } bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea] disabled:opacity-50`}
               />
+              {errors.telefone && (
+                <p className="mt-1 text-xs text-red-500">{errors.telefone}</p>
+              )}
             </div>
           </div>
 
           <Button
             onClick={handleSubmit}
-            disabled={!isFormValid}
+            disabled={!isFormValid || isLoading}
             className="mt-6 w-full h-12 sm:h-14 bg-[#2563ea] text-sm sm:text-base font-semibold text-white hover:bg-[#1d4ed8] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Criar Conta Grátis
+            {isLoading ? "Criando conta..." : "Criar Conta Grátis"}
           </Button>
 
           <p className="mt-4 text-center text-xs text-gray-500">
