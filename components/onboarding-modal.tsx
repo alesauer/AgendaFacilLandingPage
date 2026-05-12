@@ -70,7 +70,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       if (response.ok && response.status === 201) {
         toast({
           title: "Oba!",
-          description: "Você receberá instruções para criar sua Barbearia no WhatsApp.",
+          description: "Você receberá instruções no WhatsApp para criar a sua barbearia!",
           variant: "default"
         })
         
