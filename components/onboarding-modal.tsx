@@ -13,7 +13,6 @@ interface OnboardingModalProps {
 export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
   const [nome, setNome] = useState("")
   const [telefone, setTelefone] = useState("")
-  const [email, setEmail] = useState("")
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -21,7 +20,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
   }, [])
 
   const handleSubmit = () => {
-    console.log({ nome, telefone, email })
+    console.log({ nome, telefone })
     onClose()
   }
 
@@ -32,7 +31,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
     return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7, 11)}`
   }
 
-  const isFormValid = nome.trim() !== "" && telefone.trim() !== "" && email.trim() !== ""
+  const isFormValid = nome.trim() !== "" && telefone.trim() !== ""
 
   if (!isOpen || !mounted) return null
 
@@ -77,7 +76,7 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
 
             <div>
               <label className="block text-xs sm:text-sm font-medium text-gray-300">
-                Telefone/WhatsApp <span className="text-red-500">*</span>
+                WhatsApp <span className="text-red-500">*</span>
               </label>
               <input
                 type="tel"
@@ -85,19 +84,6 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
                 onChange={(e) => setTelefone(formatTelefone(e.target.value))}
                 placeholder="(00) 00000-0000"
                 maxLength={15}
-                className="mt-1.5 sm:mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea]"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs sm:text-sm font-medium text-gray-300">
-                E-mail <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="seu@email.com"
                 className="mt-1.5 sm:mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 outline-none transition-colors focus:border-[#2563ea] focus:ring-1 focus:ring-[#2563ea]"
               />
             </div>
