@@ -5,6 +5,7 @@ import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { toast } from "@/hooks/use-toast"
+import { SuccessToastWithConfetti } from "@/components/success-toast-confetti"
 
 interface OnboardingModalProps {
   isOpen: boolean
@@ -67,10 +68,15 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
       const data: LeadResponse = await response.json()
 
       if (response.status === 201 && data.success) {
-        // Lead criado com sucesso - sempre mostrar mensagem de sucesso
+        // Lead criado com sucesso - mostrar toast com confetti
         toast({
-          title: "Oba!",
-          description: "Você receberá instruções no WhatsApp para criar a sua barbearia!"
+          description: (
+            <SuccessToastWithConfetti
+              title="Oba!"
+              description="Você receberá instruções no WhatsApp para criar a sua barbearia!"
+            />
+          ),
+          duration: 5000,
         })
         
         // Se whatsapp não foi enviado ou há warning, apenas logar (não mostrar erro)
