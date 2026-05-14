@@ -6,6 +6,7 @@ import { ROICalculator } from "@/components/landing/roi-calculator"
 import { WhatsAppReminders } from "@/components/landing/whatsapp-reminders"
 import { Objections } from "@/components/landing/objections"
 import { Pricing } from "@/components/landing/pricing"
+import { TrustBadges } from "@/components/landing/trust-badges"
 import { Testimonials } from "@/components/landing/testimonials"
 import { CTA } from "@/components/landing/cta"
 import { Footer } from "@/components/landing/footer"
@@ -26,6 +27,7 @@ export default function HomePage() {
         <section id="precos">
           <Pricing />
         </section>
+        <TrustBadges />
         <section id="faq">
           <Objections />
         </section>
