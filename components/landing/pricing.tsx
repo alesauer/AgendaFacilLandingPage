@@ -193,8 +193,13 @@ export function Pricing() {
                 variant={plan.popular ? "default" : "secondary"}
                 onClick={() => setIsOnboardingOpen(true)}
               >
-                Começar teste grátis
+                Testar Grátis
               </Button>
+
+              {/* Microcopy */}
+              <p className="mt-3 text-xs text-muted-foreground text-center">
+                14 dias grátis • Sem cartão • Sem compromisso
+              </p>
             </div>
           ))}
         </div>

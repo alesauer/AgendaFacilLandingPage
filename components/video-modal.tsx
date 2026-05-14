@@ -158,15 +158,20 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
             {/* CTA Button - appears after 30s or when video ends */}
             {showCTA && (
-              <div className="mt-6 flex justify-center animate-in fade-in-0 slide-in-from-bottom-4 duration-500">
+              <div className="mt-6 flex flex-col items-center justify-center gap-3 animate-in fade-in-0 slide-in-from-bottom-4 duration-500">
                 <Button
                   size="lg"
                   onClick={handleCTAClick}
                   className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8] shadow-lg shadow-[#2563ea]/30"
                 >
-                  Começar teste grátis
+                  Testar Grátis
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
+
+                {/* Microcopy */}
+                <p className="text-sm text-white/60">
+                  14 dias grátis • Sem cartão • Sem compromisso
+                </p>
               </div>
             )}
           </div>

@@ -36,8 +36,13 @@ export function QuickWins() {
               className="mt-8 h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
               onClick={() => setIsOnboardingOpen(true)}
             >
-              Começar teste grátis
+              Testar Grátis
             </Button>
+
+            {/* Microcopy */}
+            <p className="mt-3 text-sm text-muted-foreground">
+              14 dias grátis • Sem cartão • Sem compromisso
+            </p>
           </div>
 
           {/* Lista de Quick Wins */}

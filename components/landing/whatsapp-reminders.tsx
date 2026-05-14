@@ -65,8 +65,13 @@ export function WhatsAppReminders() {
               className="mt-8 sm:mt-10 h-12 sm:h-14 w-full sm:w-auto bg-[#2563ea] px-6 sm:px-8 text-sm sm:text-base font-semibold text-white hover:bg-[#1d4ed8]"
               onClick={() => setIsOnboardingOpen(true)}
             >
-              Começar teste grátis
+              Testar Grátis
             </Button>
+            
+            {/* Microcopy */}
+            <p className="mt-3 text-sm text-white/60">
+              14 dias grátis • Sem cartão • Sem compromisso
+            </p>
             
             <OnboardingModal isOpen={isOnboardingOpen} onClose={() => setIsOnboardingOpen(false)} />
           </div>
