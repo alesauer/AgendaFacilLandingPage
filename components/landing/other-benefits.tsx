@@ -1,66 +1,92 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { Sparkles } from "lucide-react"
+import { 
+  Sparkles, 
+  GraduationCap, 
+  Gift, 
+  Users, 
+  Headphones, 
+  PlayCircle,
+  Check,
+  Star,
+  Trophy,
+  MessageCircle,
+  BookOpen,
+  Video,
+  Zap
+} from "lucide-react"
 import { OnboardingModal } from "@/components/onboarding-modal"
 
 const tabs = [
-  { id: "conhecimento", label: "Conhecimento" },
-  { id: "vantagens", label: "Vantagens" },
-  { id: "comunidade", label: "Comunidade" },
-  { id: "suporte", label: "Suporte" },
-  { id: "treinamento", label: "Treinamento" },
+  { id: "conhecimento", label: "Conhecimento", icon: GraduationCap },
+  { id: "vantagens", label: "Vantagens", icon: Gift },
+  { id: "comunidade", label: "Comunidade", icon: Users },
+  { id: "suporte", label: "Suporte", icon: Headphones },
+  { id: "treinamento", label: "Treinamento", icon: PlayCircle },
 ]
 
 const benefits = {
   conhecimento: {
-    title: "Academia Barbeiros.app:",
-    description: "acreditamos que conhecimento impulsiona negócios. Com o Barbeiros.app, você vai além do sistema e conta com conteúdos, materiais e iniciativas que ajudam a evoluir seu negócio. É por isso que criamos a Academia Barbeiros.app, nosso espaço de aprendizado com dicas, guias, vídeos e conteúdos práticos para apoiar quem empreende na beleza e bem-estar todos os dias.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-U9Jjxn9xHWmcdxxoJvy518YMBxuHAe.png",
-    items: [],
+    icon: GraduationCap,
+    title: "Academia Barbeiros.app",
+    subtitle: "Conhecimento que impulsiona seu negócio",
+    description: "Vá além do sistema com conteúdos, materiais e iniciativas que ajudam a evoluir seu negócio. Nossa Academia é seu espaço de aprendizado com dicas, guias, vídeos e conteúdos práticos.",
+    items: [
+      { icon: BookOpen, text: "Guias práticos e materiais exclusivos", badge: "Gratuito" },
+      { icon: Video, text: "Vídeos e tutoriais passo a passo", badge: null },
+      { icon: Zap, text: "Conteúdos atualizados toda semana", badge: "Novo" },
+      { icon: Star, text: "Apoio para quem empreende na beleza", badge: null },
+    ],
   },
   vantagens: {
-    title: "Programa de Vantagens:",
-    description: "com nosso programa de benefícios, quanto mais você fica conosco, mais benefícios você ganha em confiar nos nossos serviços, desde brindes, sorteios e prêmios de fidelidade.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vslamO6ijnVlz1WsEZox3hLukjkeBe.png",
-    items: [],
+    icon: Gift,
+    title: "Programa de Vantagens",
+    subtitle: "Quanto mais você fica, mais você ganha",
+    description: "Com nosso programa de benefícios, quanto mais você fica conosco, mais benefícios você ganha em confiar nos nossos serviços.",
+    items: [
+      { icon: Gift, text: "Brindes exclusivos para clientes fiéis", badge: "Exclusivo" },
+      { icon: Trophy, text: "Sorteios mensais de prêmios", badge: null },
+      { icon: Star, text: "Prêmios de fidelidade progressivos", badge: null },
+      { icon: Zap, text: "Acesso antecipado a novidades", badge: "VIP" },
+    ],
   },
   comunidade: {
-    title: "",
-    description: "Entregamos mais que um sistema completo de gestão: conectamos você a uma comunidade exclusiva de gestores da beleza e bem-estar no WhatsApp, onde a troca de experiências, dicas e aprendizados impulsiona decisões mais seguras para o dia a dia e novas oportunidades para o seu negócio ir além.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5OUB6BzmhsQsAPtBMwkUPsIlj8zqX4.png",
-    items: [],
+    icon: Users,
+    title: "Comunidade Exclusiva",
+    subtitle: "Conecte-se com outros gestores",
+    description: "Mais que um sistema: uma comunidade exclusiva de gestores da beleza e bem-estar no WhatsApp para trocar experiências e crescer juntos.",
+    items: [
+      { icon: MessageCircle, text: "Grupo exclusivo no WhatsApp", badge: "Exclusivo" },
+      { icon: Users, text: "Networking com outros gestores", badge: null },
+      { icon: Zap, text: "Troca de experiências e dicas", badge: null },
+      { icon: Star, text: "Oportunidades de parcerias", badge: "Novo" },
+    ],
   },
   suporte: {
-    title: "",
-    description: "No Barbeiros.app, você conta com suporte gratuito e humanizado, feito de pessoas para pessoas, para ajudar em cada etapa da sua rotina. É atendimento próximo, ágil e parceiro para tirar dúvidas, destravar a gestão e garantir que você siga no controle do seu negócio.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Eo5pVnO8WEMM7gr4Jz2rCjyi8pZFhI.png",
-    items: [],
+    icon: Headphones,
+    title: "Suporte Humanizado",
+    subtitle: "Pessoas de verdade, prontas para ajudar",
+    description: "Suporte gratuito e humanizado, feito de pessoas para pessoas, para ajudar em cada etapa da sua rotina.",
+    items: [
+      { icon: Headphones, text: "Atendimento próximo e ágil", badge: "Gratuito" },
+      { icon: MessageCircle, text: "Chat em tempo real", badge: null },
+      { icon: Check, text: "Resolução rápida de dúvidas", badge: null },
+      { icon: Star, text: "Time especializado em barbearias", badge: null },
+    ],
   },
   treinamento: {
-    title: "",
-    description: "",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5YOC5v5sPqmxmNYLTQbiMiH9kCKqJE.png",
+    icon: PlayCircle,
+    title: "Treinamentos ao Vivo",
+    subtitle: "Aprenda na prática com nosso time",
+    description: "Treinamentos online e gratuitos para você dominar o sistema e alavancar seu negócio.",
     items: [
-      {
-        title: "Barbeiros Ensina:",
-        description: "treinamentos online e gratuitos, 2x na semana, pra você configurar: primeiros passos, atendimento e ferramentas de divulgação;",
-      },
-      {
-        title: "Barbeiros Responde:",
-        description: "toda quarta você tira as suas dúvidas ao vivo com nosso time;",
-      },
-      {
-        title: "Barbeiros Ensina Edição Especial:",
-        description: "treinamentos 2x ao mês sobre soluções específicas do sistema;",
-      },
-      {
-        title: "O Caminho para o Sucesso:",
-        description: "webinars gratuitos sobre gestão de negócios.",
-      },
+      { icon: Video, text: "Barbeiros Ensina: 2x por semana", badge: "Gratuito" },
+      { icon: MessageCircle, text: "Barbeiros Responde: tira-dúvidas ao vivo", badge: "Toda quarta" },
+      { icon: BookOpen, text: "Edição Especial: soluções avançadas", badge: "2x ao mês" },
+      { icon: Trophy, text: "Webinars sobre gestão de negócios", badge: null },
     ],
   },
 }
@@ -70,6 +96,7 @@ export function OtherBenefits() {
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false)
 
   const currentBenefit = benefits[activeTab as keyof typeof benefits]
+  const ActiveIcon = currentBenefit.icon
 
   return (
     <section className="py-20 sm:py-28 bg-background">
@@ -90,66 +117,74 @@ export function OtherBenefits() {
 
         {/* Tabs */}
         <div className="mt-10 flex flex-wrap justify-center gap-2 sm:gap-4">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={cn(
-                "px-4 sm:px-6 py-2.5 rounded-full text-sm sm:text-base font-medium transition-all",
-                activeTab === tab.id
-                  ? "bg-[#2563ea] text-white shadow-lg"
-                  : "bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground"
-              )}
-            >
-              {tab.label}
-            </button>
-          ))}
+          {tabs.map((tab) => {
+            const TabIcon = tab.icon
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={cn(
+                  "flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full text-sm sm:text-base font-medium transition-all",
+                  activeTab === tab.id
+                    ? "bg-[#2563ea] text-white shadow-lg"
+                    : "bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground"
+                )}
+              >
+                <TabIcon className="h-4 w-4" />
+                <span className="hidden sm:inline">{tab.label}</span>
+              </button>
+            )
+          })}
         </div>
 
         {/* Content */}
-        <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-          {/* Image */}
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted">
-            <Image
-              src={currentBenefit.image}
-              alt={tabs.find(t => t.id === activeTab)?.label || ""}
-              fill
-              className="object-cover"
-            />
+        <div className="mt-12 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+          {/* Icon + Title Section */}
+          <div className="lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#2563ea]/10 mb-6">
+              <ActiveIcon className="h-10 w-10 text-[#2563ea]" />
+            </div>
+            <h3 className="text-2xl font-bold text-foreground">
+              {currentBenefit.title}
+            </h3>
+            <p className="mt-2 text-lg text-[#2563ea] font-medium">
+              {currentBenefit.subtitle}
+            </p>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              {currentBenefit.description}
+            </p>
           </div>
 
-          {/* Text Content */}
-          <div className="space-y-6">
-            {currentBenefit.items.length > 0 ? (
-              <ul className="space-y-4">
-                {currentBenefit.items.map((item, index) => (
-                  <li key={index} className="flex gap-3">
-                    <Sparkles className="h-5 w-5 text-[#2563ea] shrink-0 mt-0.5" />
-                    <p className="text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">{item.title}</span>{" "}
-                      {item.description}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <div className="flex gap-3">
-                {currentBenefit.title && (
-                  <Sparkles className="h-5 w-5 text-[#2563ea] shrink-0 mt-0.5" />
-                )}
-                <p className="text-muted-foreground leading-relaxed">
-                  {currentBenefit.title && (
-                    <span className="font-semibold text-foreground">{currentBenefit.title}</span>
-                  )}{" "}
-                  {currentBenefit.description}
-                </p>
-              </div>
-            )}
+          {/* Benefits List */}
+          <div className="lg:w-2/3 grid gap-4 sm:grid-cols-2">
+            {currentBenefit.items.map((item, index) => {
+              const ItemIcon = item.icon
+              return (
+                <div 
+                  key={index}
+                  className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-[#2563ea]/30 hover:shadow-md transition-all"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#2563ea]/10">
+                    <ItemIcon className="h-5 w-5 text-[#2563ea]" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-foreground font-medium">{item.text}</span>
+                      {item.badge && (
+                        <span className="inline-flex items-center rounded-full bg-[#2563ea]/10 px-2 py-0.5 text-xs font-semibold text-[#2563ea]">
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 flex flex-col items-center">
+        <div className="mt-16 flex flex-col items-center">
           <Button
             size="lg"
             className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
