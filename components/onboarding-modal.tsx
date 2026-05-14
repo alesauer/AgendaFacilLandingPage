@@ -143,8 +143,8 @@ export function OnboardingModal({ isOpen, onClose }: OnboardingModalProps) {
         {/* Content */}
         <div className="p-6 sm:p-8">
           <div className="text-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white">Crie sua Conta Grátis</h2>
-            <p className="mt-2 text-sm sm:text-base text-gray-400">Não é necessário cartão de crédito.</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-white">Teste grátis o sistema que reduz faltas e aumenta agendamentos</h2>
+            <p className="mt-2 text-sm sm:text-base text-gray-400">Sem cartão de crédito.</p>
           </div>
 
           <div className="space-y-4">
