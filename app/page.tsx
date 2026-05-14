@@ -8,6 +8,7 @@ import { Objections } from "@/components/landing/objections"
 import { Pricing } from "@/components/landing/pricing"
 import { TrustBadges } from "@/components/landing/trust-badges"
 import { Testimonials } from "@/components/landing/testimonials"
+import { OtherBenefits } from "@/components/landing/other-benefits"
 import { CTA } from "@/components/landing/cta"
 import { Footer } from "@/components/landing/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
@@ -34,6 +35,7 @@ export default function HomePage() {
         <section id="depoimentos">
           <Testimonials />
         </section>
+        <OtherBenefits />
         <CTA />
       </main>
       <Footer />
