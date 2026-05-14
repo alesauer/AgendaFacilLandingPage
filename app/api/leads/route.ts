@@ -14,7 +14,17 @@ export async function POST(request: Request) {
     })
 
     const data = await response.json()
-    console.log("[v0] Backend response:", data)
+    console.log("[v0] Backend response status:", response.status)
+    console.log("[v0] Backend response data:", data)
+
+    // Log detalhado para debug
+    if (!response.ok) {
+      console.error("[v0] Backend returned non-ok status:", {
+        status: response.status,
+        statusText: response.statusText,
+        data
+      })
+    }
 
     return Response.json(data, { status: response.status })
   } catch (error) {
