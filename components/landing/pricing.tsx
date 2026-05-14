@@ -131,18 +131,18 @@ export function Pricing() {
               className={cn(
                 "relative flex flex-col rounded-2xl border p-8 transition-all overflow-hidden",
                 plan.popular 
-                  ? "border-[#2563ea] bg-card shadow-xl ring-2 ring-[#2563ea]" 
+                  ? "border-[#2563ea] bg-card shadow-xl ring-2 ring-[#2563ea] mt-6" 
                   : "border-border bg-card hover:border-[#2563ea]/30 hover:shadow-md"
               )}
             >
-              {/* Risco Zero Badge - Diagonal */}
-              <div className="absolute -right-12 top-6 w-32 rotate-45 bg-[#2563ea] py-1 text-center shadow-lg">
+              {/* Risco Zero Badge - Diagonal Left */}
+              <div className="absolute -left-12 top-6 w-32 -rotate-45 bg-[#2563ea] py-1 text-center shadow-lg">
                 <span className="text-xs font-bold uppercase tracking-wider text-white">Risco Zero</span>
               </div>
 
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <div className="flex items-center gap-1 rounded-full bg-[#2563ea] px-4 py-1.5 text-sm font-semibold text-white">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <div className="flex items-center gap-1 rounded-full bg-[#2563ea] px-4 py-1.5 text-sm font-semibold text-white shadow-lg">
                     <Star className="h-4 w-4 fill-current" />
                     Mais escolhido
                   </div>
