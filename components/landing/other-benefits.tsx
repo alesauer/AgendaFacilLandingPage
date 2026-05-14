@@ -138,11 +138,11 @@ export function OtherBenefits() {
         </div>
 
         {/* Content */}
-        <div className="mt-12 flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-          {/* Icon + Title Section */}
-          <div className="lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#2563ea]/10 mb-6">
-              <ActiveIcon className="h-10 w-10 text-[#2563ea]" />
+        <div className="mt-12">
+          {/* Header do benefício - Centralizado */}
+          <div className="text-center mb-10">
+            <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#2563ea]/10 mb-4">
+              <ActiveIcon className="h-8 w-8 text-[#2563ea]" />
             </div>
             <h3 className="text-2xl font-bold text-foreground">
               {currentBenefit.title}
@@ -150,33 +150,31 @@ export function OtherBenefits() {
             <p className="mt-2 text-lg text-[#2563ea] font-medium">
               {currentBenefit.subtitle}
             </p>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+            <p className="mt-3 text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               {currentBenefit.description}
             </p>
           </div>
 
-          {/* Benefits List */}
-          <div className="lg:w-2/3 grid gap-4 sm:grid-cols-2">
+          {/* Benefits Grid - 4 colunas uniformes */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {currentBenefit.items.map((item, index) => {
               const ItemIcon = item.icon
               return (
                 <div 
                   key={index}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-[#2563ea]/30 hover:shadow-md transition-all"
+                  className="flex flex-col items-center text-center p-6 rounded-xl bg-card border border-border hover:border-[#2563ea]/30 hover:shadow-md transition-all h-full"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#2563ea]/10">
-                    <ItemIcon className="h-5 w-5 text-[#2563ea]" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2563ea]/10 mb-4">
+                    <ItemIcon className="h-6 w-6 text-[#2563ea]" />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-foreground font-medium">{item.text}</span>
-                      {item.badge && (
-                        <span className="inline-flex items-center rounded-full bg-[#2563ea]/10 px-2 py-0.5 text-xs font-semibold text-[#2563ea]">
-                          {item.badge}
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                  <span className="text-foreground font-medium leading-snug">
+                    {item.text}
+                  </span>
+                  {item.badge && (
+                    <span className="mt-3 inline-flex items-center rounded-full bg-[#2563ea]/10 px-3 py-1 text-xs font-semibold text-[#2563ea]">
+                      {item.badge}
+                    </span>
+                  )}
                 </div>
               )
             })}
