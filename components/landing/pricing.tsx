@@ -124,12 +124,12 @@ export function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-3 items-start">
+        <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <div 
               key={index}
               className={cn(
-                "relative flex flex-col rounded-2xl border p-8 pt-10 transition-all",
+                "relative flex flex-col rounded-2xl border p-8 pt-10 transition-all h-full",
                 plan.popular 
                   ? "border-[#2563ea] bg-card shadow-xl ring-2 ring-[#2563ea]" 
                   : "border-border bg-card hover:border-[#2563ea]/30 hover:shadow-md"
