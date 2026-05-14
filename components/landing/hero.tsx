@@ -41,7 +41,7 @@ export function Hero() {
               className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
               onClick={() => setIsOnboardingOpen(true)}
             >
-              Começar teste grátis
+              Testar Grátis
             </Button>
             <Button
               size="lg"
@@ -52,6 +52,11 @@ export function Hero() {
               Ver demonstração
             </Button>
           </div>
+
+          {/* Microcopy */}
+          <p className="mt-3 text-sm text-muted-foreground">
+            14 dias grátis • Sem cartão • Sem compromisso
+          </p>
 
           {/* Social Proof */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">

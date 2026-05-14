@@ -124,20 +124,28 @@ export function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-12 grid gap-8 lg:grid-cols-3">
+        <div className="mt-16 grid gap-8 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <div 
               key={index}
               className={cn(
-                "relative flex flex-col rounded-2xl border p-8 transition-all",
+                "relative flex flex-col rounded-2xl border p-8 pt-10 transition-all h-full",
                 plan.popular 
                   ? "border-[#2563ea] bg-card shadow-xl ring-2 ring-[#2563ea]" 
                   : "border-border bg-card hover:border-[#2563ea]/30 hover:shadow-md"
               )}
             >
+              {/* Risco Zero Badge - Horizontal Top Left */}
+              <div className="absolute left-4 top-4 z-10">
+                <div className="flex items-center gap-1 rounded-md bg-[#2563ea] px-2 py-1 shadow-sm">
+                  <Shield className="h-3 w-3 text-white" />
+                  <span className="text-[10px] font-bold uppercase tracking-wide text-white">Risco Zero</span>
+                </div>
+              </div>
+
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="flex items-center gap-1 rounded-full bg-[#2563ea] px-4 py-1.5 text-sm font-semibold text-white">
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="flex items-center gap-1 rounded-full bg-[#2563ea] px-4 py-1.5 text-sm font-semibold text-white shadow-lg whitespace-nowrap">
                     <Star className="h-4 w-4 fill-current" />
                     Mais escolhido
                   </div>
@@ -193,16 +201,21 @@ export function Pricing() {
                 variant={plan.popular ? "default" : "secondary"}
                 onClick={() => setIsOnboardingOpen(true)}
               >
-                Começar teste grátis
+                Testar Grátis
               </Button>
+
+              {/* Microcopy */}
+              <p className="mt-3 text-xs text-muted-foreground text-center">
+                14 dias grátis • Sem cartão • Sem compromisso
+              </p>
             </div>
           ))}
         </div>
 
         {/* Trust badges */}
-        <div className="mt-16 rounded-2xl border border-border bg-card p-8">
+        <div className="mt-16 rounded-2xl border border-border/50 bg-card/50 p-8 backdrop-blur-sm">
           <div className="flex items-center justify-center gap-3 text-foreground">
-            <Shield className="h-6 w-6 text-[#2563ea]" />
+            <Check className="h-6 w-6 text-[#2563ea]" />
             <h3 className="text-lg font-semibold">Sem pegadinhas</h3>
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

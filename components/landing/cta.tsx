@@ -21,16 +21,21 @@ export function CTA() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button 
               size="lg" 
               className="h-14 bg-card px-8 text-base font-semibold text-foreground hover:bg-card/90"
               onClick={() => setIsOnboardingOpen(true)}
             >
-              Começar teste grátis de 14 dias
+              Testar Grátis
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
+
+          {/* Microcopy */}
+          <p className="mt-3 text-sm text-white/60">
+            14 dias grátis • Sem cartão • Sem compromisso
+          </p>
 
           {/* Trust Badges */}
           <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-white/70">
