@@ -123,36 +123,25 @@ export function Pricing() {
           </div>
         </div>
 
-        {/* Guarantee Badge - Risco Zero */}
-        <div className="mt-10 flex justify-center">
-          <div className="group relative inline-flex flex-col items-center rounded-2xl border border-[#2563ea]/20 bg-gradient-to-br from-[#2563ea]/5 to-transparent px-8 py-6 shadow-sm transition-all duration-300 hover:border-[#2563ea]/40 hover:shadow-md">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2563ea]/10 transition-transform duration-300 group-hover:scale-110">
-                <Shield className="h-5 w-5 text-[#2563ea]" />
-              </div>
-              <span className="text-lg font-bold text-foreground">Risco Zero</span>
-            </div>
-            <div className="mt-3 flex flex-col items-center gap-1 text-sm text-muted-foreground">
-              <span>Teste grátis por 14 dias</span>
-              <span>Cancele com apenas 1 clique</span>
-            </div>
-          </div>
-        </div>
-
         {/* Pricing Cards */}
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <div 
               key={index}
               className={cn(
-                "relative flex flex-col rounded-2xl border p-8 transition-all",
+                "relative flex flex-col rounded-2xl border p-8 transition-all overflow-hidden",
                 plan.popular 
                   ? "border-[#2563ea] bg-card shadow-xl ring-2 ring-[#2563ea]" 
                   : "border-border bg-card hover:border-[#2563ea]/30 hover:shadow-md"
               )}
             >
+              {/* Risco Zero Badge - Diagonal */}
+              <div className="absolute -right-12 top-6 w-32 rotate-45 bg-[#2563ea] py-1 text-center shadow-lg">
+                <span className="text-xs font-bold uppercase tracking-wider text-white">Risco Zero</span>
+              </div>
+
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
                   <div className="flex items-center gap-1 rounded-full bg-[#2563ea] px-4 py-1.5 text-sm font-semibold text-white">
                     <Star className="h-4 w-4 fill-current" />
                     Mais escolhido
