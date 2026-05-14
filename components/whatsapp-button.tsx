@@ -17,8 +17,8 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false)
-  const phoneNumber = "5531995041815"
-  const message = "Olá! Gostaria de saber mais sobre o Barbeiros.app"
+  const phoneNumber = "5531983410473"
+  const message = "Olá! Vim pelo site do AgendaFácil 🚀\n\nQuero organizar melhor meus agendamentos e entender como o sistema pode ajudar minha barbearia."
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
