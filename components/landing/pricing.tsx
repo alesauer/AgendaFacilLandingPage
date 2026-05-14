@@ -124,25 +124,28 @@ export function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-12 grid gap-8 lg:grid-cols-3 items-stretch">
+        <div className="mt-16 grid gap-8 lg:grid-cols-3 items-start">
           {plans.map((plan, index) => (
             <div 
               key={index}
               className={cn(
-                "relative flex flex-col rounded-2xl border p-8 transition-all overflow-hidden",
+                "relative flex flex-col rounded-2xl border p-8 pt-10 transition-all",
                 plan.popular 
-                  ? "border-[#2563ea] bg-card shadow-xl ring-2 ring-[#2563ea] lg:-mt-4 lg:mb-4" 
+                  ? "border-[#2563ea] bg-card shadow-xl ring-2 ring-[#2563ea]" 
                   : "border-border bg-card hover:border-[#2563ea]/30 hover:shadow-md"
               )}
             >
-              {/* Risco Zero Badge - Diagonal Left */}
-              <div className="absolute -left-10 top-5 w-28 -rotate-45 bg-[#2563ea] py-1 text-center shadow-lg">
-                <span className="text-[10px] font-bold uppercase tracking-wide text-white">Risco Zero</span>
+              {/* Risco Zero Badge - Horizontal Top Left */}
+              <div className="absolute left-4 top-4 z-10">
+                <div className="flex items-center gap-1 rounded-md bg-[#2563ea] px-2 py-1 shadow-sm">
+                  <Shield className="h-3 w-3 text-white" />
+                  <span className="text-[10px] font-bold uppercase tracking-wide text-white">Risco Zero</span>
+                </div>
               </div>
 
               {plan.popular && (
-                <div className="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                  <div className="flex items-center gap-1 rounded-full bg-[#2563ea] px-4 py-1.5 text-sm font-semibold text-white shadow-lg">
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-20">
+                  <div className="flex items-center gap-1 rounded-full bg-[#2563ea] px-4 py-1.5 text-sm font-semibold text-white shadow-lg whitespace-nowrap">
                     <Star className="h-4 w-4 fill-current" />
                     Mais escolhido
                   </div>
