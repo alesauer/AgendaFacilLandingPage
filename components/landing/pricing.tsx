@@ -123,6 +123,22 @@ export function Pricing() {
           </div>
         </div>
 
+        {/* Guarantee Badge - Risco Zero */}
+        <div className="mt-10 flex justify-center">
+          <div className="group relative inline-flex flex-col items-center rounded-2xl border border-[#2563ea]/20 bg-gradient-to-br from-[#2563ea]/5 to-transparent px-8 py-6 shadow-sm transition-all duration-300 hover:border-[#2563ea]/40 hover:shadow-md">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2563ea]/10 transition-transform duration-300 group-hover:scale-110">
+                <Shield className="h-5 w-5 text-[#2563ea]" />
+              </div>
+              <span className="text-lg font-bold text-foreground">Risco Zero</span>
+            </div>
+            <div className="mt-3 flex flex-col items-center gap-1 text-sm text-muted-foreground">
+              <span>Teste grátis por 14 dias</span>
+              <span>Cancele com apenas 1 clique</span>
+            </div>
+          </div>
+        </div>
+
         {/* Pricing Cards */}
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
           {plans.map((plan, index) => (
@@ -205,9 +221,9 @@ export function Pricing() {
         </div>
 
         {/* Trust badges */}
-        <div className="mt-16 rounded-2xl border border-border bg-card p-8">
+        <div className="mt-16 rounded-2xl border border-border/50 bg-card/50 p-8 backdrop-blur-sm">
           <div className="flex items-center justify-center gap-3 text-foreground">
-            <Shield className="h-6 w-6 text-[#2563ea]" />
+            <Check className="h-6 w-6 text-[#2563ea]" />
             <h3 className="text-lg font-semibold">Sem pegadinhas</h3>
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
