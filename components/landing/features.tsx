@@ -1,137 +1,123 @@
 "use client"
 
 import { useState } from "react"
-import { 
-  Calendar, 
-  Users, 
-  DollarSign, 
-  Bell, 
-  Scissors, 
-  BarChart3, 
-  Palette, 
-  Shield, 
-  Link2,
-  CheckCircle2,
-  ArrowRight,
-  ChevronDown
+import {
+  Calendar,
+  CalendarCheck,
+  Scissors,
+  Users,
+  History,
+  Heart,
+  DollarSign,
+  BarChart3,
+  MessageCircle,
+  Mail,
+  Bell,
+  type LucideIcon,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { OnboardingModal } from "@/components/onboarding-modal"
-import { cn } from "@/lib/utils"
 
-const features = [
+type FeatureItem = {
+  icon: LucideIcon
+  title: string
+  description: string
+}
+
+type FeatureGroup = {
+  category: string
+  accent: string
+  items: FeatureItem[]
+}
+
+const groups: FeatureGroup[] = [
   {
-    icon: Calendar,
-    title: "Agenda inteligente que trabalha por você",
-    description: "Organização automática da agenda em blocos de 15 minutos com cálculo inteligente de disponibilidade.",
-    benefits: [
-      "Evita conflitos e sobreposição de horários",
-      "Visual simples e rápido para você e sua equipe",
-      "Menos erros, menos horários vazios"
+    category: "Agenda e Operação",
+    accent: "#2563ea",
+    items: [
+      {
+        icon: Calendar,
+        title: "Agenda",
+        description: "Visão clara dos horários da barbearia em blocos inteligentes, sem conflitos.",
+      },
+      {
+        icon: CalendarCheck,
+        title: "Agendamentos",
+        description: "Clientes marcam online por um link exclusivo, 24 horas por dia.",
+      },
+      {
+        icon: Scissors,
+        title: "Profissionais",
+        description: "Agenda individual por barbeiro, com controle de status e disponibilidade.",
+      },
     ],
-    result: "Mais atendimentos por dia"
   },
   {
-    icon: Users,
-    title: "Gestão completa de clientes (CRM)",
-    description: "Cadastro com telefone, e-mail e histórico completo de cada cliente.",
-    benefits: [
-      "Acompanhamento de comportamento e frequência",
-      "Base organizada para fidelização",
-      "Histórico de serviços e preferências"
+    category: "Clientes e Relacionamento",
+    accent: "#2563ea",
+    items: [
+      {
+        icon: Users,
+        title: "CRM",
+        description: "Base completa de clientes com telefone, e-mail e dados de contato.",
+      },
+      {
+        icon: History,
+        title: "Histórico",
+        description: "Registro de serviços, preferências e frequência de cada cliente.",
+      },
+      {
+        icon: Heart,
+        title: "Fidelização",
+        description: "Acompanhe o comportamento e traga os clientes de volta com mais frequência.",
+      },
     ],
-    result: "Clientes voltam mais"
   },
   {
-    icon: DollarSign,
-    title: "Controle financeiro sem complicação",
-    description: "Visão clara do faturamento da barbearia em tempo real.",
-    benefits: [
-      "Acompanhamento de desempenho por profissional",
-      "Controle por perfil (admin e funcionários)",
-      "Relatórios automáticos"
+    category: "Financeiro",
+    accent: "#2563ea",
+    items: [
+      {
+        icon: DollarSign,
+        title: "Fluxo financeiro",
+        description: "Faturamento em tempo real e cálculo automático de comissões por profissional.",
+      },
+      {
+        icon: BarChart3,
+        title: "Relatórios",
+        description: "Indicadores por período e profissional para decidir com dados, não com achismo.",
+      },
     ],
-    result: "Decisões baseadas em números"
   },
   {
-    icon: Scissors,
-    title: "Gestão de profissionais e comissões",
-    description: "Cadastro completo da equipe com definição de comissão por profissional.",
-    benefits: [
-      "Controle de status e atividade",
-      "Cálculo automático de comissões",
-      "Agenda individual por barbeiro"
+    category: "Automação",
+    accent: "#2563ea",
+    items: [
+      {
+        icon: MessageCircle,
+        title: "WhatsApp",
+        description: "Confirmações e comunicação automática direto no WhatsApp do cliente.",
+      },
+      {
+        icon: Mail,
+        title: "Email",
+        description: "Envio de e-mails transacionais e avisos importantes de forma automática.",
+      },
+      {
+        icon: Bell,
+        title: "Lembretes",
+        description: "Notificações antes do horário marcado para reduzir faltas (no-show).",
+      },
     ],
-    result: "Equipe mais organizada e motivada"
-  },
-  {
-    icon: Bell,
-    title: "Automação e notificações inteligentes",
-    description: "Confirmações e lembretes automáticos por WhatsApp.",
-    benefits: [
-      "Notificações antes do horário marcado",
-      "Confirmação com um clique",
-      "Redução drástica de faltas (no-show)"
-    ],
-    result: "Agenda mais cheia e menos prejuízo"
-  },
-  {
-    icon: Palette,
-    title: "Sua marca, sua identidade",
-    description: "Personalização com logo e cores da sua barbearia.",
-    benefits: [
-      "Tela de agendamento customizada",
-      "Experiência profissional para seus clientes",
-      "Link exclusivo para sua barbearia"
-    ],
-    result: "Mais credibilidade e valor percebido"
-  },
-  {
-    icon: BarChart3,
-    title: "Dashboard com visão do negócio",
-    description: "Indicadores de desempenho e insights para tomada de decisão.",
-    benefits: [
-      "Acompanhamento de crescimento",
-      "Métricas por período e profissional",
-      "Identificação de oportunidades"
-    ],
-    result: "Você decide com dados, não com achismo"
-  },
-  {
-    icon: Shield,
-    title: "Segurança e estrutura profissional",
-    description: "Dados isolados por barbearia com controle de acesso por tipo de usuário.",
-    benefits: [
-      "Sistema seguro e preparado para crescer",
-      "Backup automático dos dados",
-      "Acesso de qualquer dispositivo"
-    ],
-    result: "Tranquilidade para focar no seu negócio"
-  },
-  {
-    icon: Link2,
-    title: "Integrações que potencializam",
-    description: "Integração com WhatsApp para comunicação automática.",
-    benefits: [
-      "Envio de e-mails transacionais",
-      "Base preparada para pagamentos",
-      "API para integrações futuras"
-    ],
-    result: "Mais automação e menos trabalho manual"
   },
 ]
 
 export function Features() {
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(false)
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
-  
-  const toggleExpand = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index)
-  }
-  
+
   return (
     <section className="bg-muted/30 py-16 lg:py-24">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wider text-[#2563ea]">
@@ -141,88 +127,39 @@ export function Features() {
             Tudo que você precisa para gerenciar sua barbearia em um só lugar
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Do agendamento ao financeiro, o Barbeiros.app centraliza sua operacao e 
+            Do agendamento ao financeiro, o Barbeiros.app centraliza sua operação e
             automatiza tarefas que hoje consomem seu tempo.
           </p>
         </div>
 
-        {/* Features Accordion */}
-        <div className="mt-12 space-y-3">
-          {features.map((feature, index) => {
-            const Icon = feature.icon
-            const isExpanded = expandedIndex === index
-            
-            return (
-              <div 
-                key={index}
-                className={cn(
-                  "rounded-xl border bg-card transition-all duration-300",
-                  isExpanded 
-                    ? "border-[#2563ea]/50 shadow-lg shadow-[#2563ea]/5" 
-                    : "border-border hover:border-[#2563ea]/30"
-                )}
-              >
-                {/* Header - Always visible */}
-                <button
-                  onClick={() => toggleExpand(index)}
-                  className="flex w-full items-center justify-between gap-4 p-4 sm:p-5 text-left"
-                >
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <div className={cn(
-                      "flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg transition-colors",
-                      isExpanded 
-                        ? "bg-[#2563ea] text-white" 
-                        : "bg-[#2563ea]/10 text-[#2563ea]"
-                    )}>
-                      <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
-                    </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-foreground">
-                      {feature.title}
-                    </h3>
-                  </div>
-                  <ChevronDown 
-                    className={cn(
-                      "h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-300",
-                      isExpanded && "rotate-180 text-[#2563ea]"
-                    )} 
-                  />
-                </button>
-
-                {/* Expandable Content */}
-                <div 
-                  className={cn(
-                    "grid transition-all duration-300 ease-in-out",
-                    isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  )}
-                >
-                  <div className="overflow-hidden">
-                    <div className="px-4 pb-5 sm:px-5 sm:pb-6 pt-0">
-                      {/* Description */}
-                      <p className="text-sm sm:text-base leading-relaxed text-muted-foreground pl-14 sm:pl-16">
-                        {feature.description}
-                      </p>
-
-                      {/* Benefits List */}
-                      <ul className="mt-4 space-y-2 pl-14 sm:pl-16">
-                        {feature.benefits.map((benefit, benefitIndex) => (
-                          <li key={benefitIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#2563ea]" />
-                            <span>{benefit}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Result Badge */}
-                      <div className="mt-4 ml-14 sm:ml-16 inline-flex items-center gap-2 rounded-lg bg-[#2563ea]/10 px-3 py-2">
-                        <ArrowRight className="h-4 w-4 text-[#2563ea]" />
-                        <span className="text-sm font-medium text-[#2563ea]">{feature.result}</span>
+        {/* Feature Groups */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {groups.map((group) => (
+            <div
+              key={group.category}
+              className="rounded-2xl border border-border bg-card p-6 sm:p-8"
+            >
+              <h3 className="text-lg font-bold text-foreground">{group.category}</h3>
+              <div className="mt-6 flex flex-col gap-5">
+                {group.items.map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <div key={item.title} className="flex items-start gap-4">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#2563ea]/10 text-[#2563ea]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-base font-semibold text-foreground">{item.title}</h4>
+                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  )
+                })}
               </div>
-            )
-          })}
+            </div>
+          ))}
         </div>
 
         {/* Bottom CTA */}
@@ -230,8 +167,8 @@ export function Features() {
           <p className="mb-6 text-lg text-muted-foreground">
             Tudo isso funcionando em poucos minutos. Sem instalação, sem complicação.
           </p>
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="h-14 bg-[#2563ea] px-8 text-base font-semibold text-white hover:bg-[#1d4ed8]"
             onClick={() => setIsOnboardingOpen(true)}
           >
@@ -244,7 +181,7 @@ export function Features() {
           </p>
         </div>
       </div>
-      
+
       <OnboardingModal isOpen={isOnboardingOpen} onClose={() => setIsOnboardingOpen(false)} />
     </section>
   )
