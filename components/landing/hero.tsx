@@ -25,8 +25,8 @@ export function Hero() {
           </span>
 
           <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Pare de perder dinheiro com{" "}
-            <span className="text-[#2563ea]">horários vazios</span> na sua barbearia
+            O sistema que ajuda sua barbearia a{" "}
+            <span className="text-[#2563ea]">vender mais e perder menos clientes</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
