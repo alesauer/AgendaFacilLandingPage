@@ -8,7 +8,7 @@ import { OnboardingModal } from "@/components/onboarding-modal"
 
 const plans = [
   {
-    name: "Essencial",
+    name: "Barba",
     description: "Para quem está começando ou tem uma base menor de clientes",
     originalPrice: 49.90,
     price: 29.90,
@@ -24,7 +24,7 @@ const plans = [
     cta: "Ideal para organizar sua operação sem pagar além do necessário."
   },
   {
-    name: "Profissional",
+    name: "Cabelo",
     description: "Para barbearias em crescimento",
     originalPrice: 59.90,
     price: 39.90,
@@ -38,7 +38,7 @@ const plans = [
     cta: "O plano ideal para quem quer escalar sem limitações no curto prazo."
   },
   {
-    name: "Avançado",
+    name: "Bigode",
     description: "Para operações maiores ou em expansão",
     originalPrice: 79.90,
     price: 49.90,
