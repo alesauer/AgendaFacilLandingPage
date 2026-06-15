@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { X, Search, Building2, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { supabase } from "@/lib/supabase"
+import { getSupabase } from "@/lib/supabase"
 
 interface Barbearia {
   id: number
@@ -36,7 +36,7 @@ export function BarbershopSearchModal({ isOpen, onClose }: BarbershopSearchModal
 
       setIsLoading(true)
       try {
-        const { data, error } = await supabase
+        const { data, error } = await getSupabase()
           .from('barbearias')
           .select('id, nome, slug')
           .ilike('nome', `%${searchTerm}%`)
