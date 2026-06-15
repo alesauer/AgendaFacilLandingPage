@@ -13,7 +13,7 @@ export function CTA() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            Transforme sua barbearia em uma máquina de faturamento previsível
+            Pronto para parar de perder dinheiro com horários vazios?
           </h2>
           <p className="mt-6 text-pretty text-lg leading-relaxed text-white/80">
             Junte-se a mais de 2.500 barbearias que já estão economizando tempo e 
