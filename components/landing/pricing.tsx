@@ -83,8 +83,8 @@ export function Pricing() {
             Planos que crescem com você
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Todos os planos incluem <strong>todas as funcionalidades</strong> do Barbeiros.app.
-            <br />Você escolhe apenas de acordo com o volume de clientes da sua operação.
+            Todas as funcionalidades incluídas em todos os planos.
+            <br />Você paga apenas pela quantidade de clientes cadastrados.
           </p>
         </div>
 

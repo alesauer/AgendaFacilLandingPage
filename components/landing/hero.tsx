@@ -30,8 +30,8 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-            Sua agenda lotada e sua operação organizada — automaticamente.
-            Menos tempo na gestão, mais tempo no atendimento.
+            Agenda inteligente, CRM, financeiro e lembretes automáticos para
+            transformar sua operação em uma máquina de crescimento.
           </p>
 
           {/* CTAs */}
@@ -90,26 +90,26 @@ export function Hero() {
             `}</style>
             <div className="marquee-track flex" style={{ width: "fit-content" }}>
               <div className="flex shrink-0 gap-8 px-4">
-                <StatItem value="20 dias" label="economizados/mês" />
-                <StatItem value="98%" label="menos no-shows" />
-                <StatItem value="+35%" label="mais faturamento" />
-                <StatItem value="6x" label="clientes recorrentes" />
+                <StatItem highlight="20 dias" text="economizados por ano em tarefas operacionais" />
+                <StatItem highlight="93%" text="dos clientes confirmam o agendamento" />
+                <StatItem highlight="35%" text="mais retornos de clientes" />
+                <StatItem highlight="6x" text="mais clientes recorrentes" />
               </div>
               <div className="flex shrink-0 gap-8 px-4">
-                <StatItem value="20 dias" label="economizados/mês" />
-                <StatItem value="98%" label="menos no-shows" />
-                <StatItem value="+35%" label="mais faturamento" />
-                <StatItem value="6x" label="clientes recorrentes" />
+                <StatItem highlight="20 dias" text="economizados por ano em tarefas operacionais" />
+                <StatItem highlight="93%" text="dos clientes confirmam o agendamento" />
+                <StatItem highlight="35%" text="mais retornos de clientes" />
+                <StatItem highlight="6x" text="mais clientes recorrentes" />
               </div>
             </div>
           </div>
 
           {/* Desktop grid */}
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard icon={<Calendar className="h-6 w-6" />} value="20 dias" label="economizados por mês" />
-            <StatCard icon={<Clock className="h-6 w-6" />} value="98%" label="menos no-shows" />
-            <StatCard icon={<TrendingUp className="h-6 w-6" />} value="+35%" label="aumento no faturamento" />
-            <StatCard icon={<Users className="h-6 w-6" />} value="6x" label="mais clientes recorrentes" />
+            <StatCard icon={<Calendar className="h-6 w-6" />} highlight="20 dias" text="economizados por ano em tarefas operacionais" />
+            <StatCard icon={<Clock className="h-6 w-6" />} highlight="93%" text="dos clientes confirmam o agendamento" />
+            <StatCard icon={<TrendingUp className="h-6 w-6" />} highlight="35%" text="mais retornos de clientes" />
+            <StatCard icon={<Users className="h-6 w-6" />} highlight="6x" text="mais clientes recorrentes" />
           </div>
         </div>
       </div>
@@ -120,24 +120,24 @@ export function Hero() {
   )
 }
 
-function StatItem({ value, label }: { value: string; label: string }) {
+function StatItem({ highlight, text }: { highlight: string; text: string }) {
   return (
-    <div className="flex flex-col items-center text-center min-w-[100px]">
-      <p className="text-2xl font-bold text-[#2563ea]">{value}</p>
-      <p className="text-xs text-muted-foreground whitespace-nowrap">{label}</p>
+    <div className="flex flex-col items-center text-center min-w-[180px] max-w-[200px]">
+      <p className="text-2xl font-bold text-[#2563ea]">{highlight}</p>
+      <p className="text-xs leading-relaxed text-muted-foreground text-balance">{text}</p>
     </div>
   )
 }
 
-function StatCard({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
+function StatCard({ icon, highlight, text }: { icon: React.ReactNode; highlight: string; text: string }) {
   return (
     <div className="flex flex-col items-start gap-3 rounded-xl border border-border bg-card p-6 transition-all hover:border-[#2563ea]/30 hover:shadow-md">
       <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#2563ea]/10 text-[#2563ea]">
         {icon}
       </div>
       <div>
-        <p className="text-2xl font-bold text-foreground">{value}</p>
-        <p className="text-sm text-muted-foreground">{label}</p>
+        <p className="text-2xl font-bold text-foreground">{highlight}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground text-balance">{text}</p>
       </div>
     </div>
   )
