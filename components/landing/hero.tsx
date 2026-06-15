@@ -30,8 +30,8 @@ export function Hero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-            Sua agenda lotada e sua operação organizada — automaticamente.
-            Menos tempo na gestão, mais tempo no atendimento.
+            Agenda inteligente, CRM, financeiro e lembretes automáticos para
+            transformar sua operação em uma máquina de crescimento.
           </p>
 
           {/* CTAs */}
