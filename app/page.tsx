@@ -32,10 +32,10 @@ export default function HomePage() {
         <section id="faq">
           <Objections />
         </section>
+        <OtherBenefits />
         <section id="depoimentos">
           <Testimonials />
         </section>
-        <OtherBenefits />
         <CTA />
       </main>
       <Footer />
