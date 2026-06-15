@@ -1,28 +1,37 @@
-"use client"
+import { Star, Quote } from "lucide-react"
 
-import { useState } from "react"
-import { Play, X } from "lucide-react"
-
-const videoTestimonials = [
+const testimonials = [
   {
     name: "Marcos Oliveira",
     role: "Dono da Barbearia Premium",
-    quote: "O Barbeiros.app é um aplicativo confiável! Nele faço toda a gestão dos meus negócios: gestão financeira, de estoque e de produto!",
-    videoId: "0RJkmrYwLmQ",
-    thumbnail: `https://img.youtube.com/vi/0RJkmrYwLmQ/maxresdefault.jpg`
+    quote:
+      "Depois do Barbeiros.app reduzi quase 70% das faltas. O cliente recebe a confirmação no WhatsApp e a agenda fica sempre cheia. Não consigo mais imaginar minha barbearia sem ele.",
+    initials: "MO",
   },
   {
     name: "Rafael Santos",
     role: "CEO e fundador de Studio de Beleza",
-    quote: "Agendamento online é uma das funções mais importantes, pois meu cliente consegue fazer agendamento mesmo enquanto a barbearia está fechada!",
-    videoId: "qrmayYlOg1I",
-    thumbnail: `https://img.youtube.com/vi/qrmayYlOg1I/maxresdefault.jpg`
-  }
+    quote:
+      "O agendamento online mudou meu negócio. Meu cliente marca o horário mesmo com a barbearia fechada, e eu acompanho todo o faturamento na palma da mão.",
+    initials: "RS",
+  },
+  {
+    name: "Thiago Mendes",
+    role: "Barbeiro e proprietário",
+    quote:
+      "O controle financeiro e de comissões dos barbeiros era minha maior dor de cabeça. Hoje fecho o caixa em minutos e sei exatamente quanto cada profissional rendeu no mês.",
+    initials: "TM",
+  },
+  {
+    name: "Lucas Ferreira",
+    role: "Dono de rede com 3 unidades",
+    quote:
+      "Gerencio minhas três unidades pelo mesmo painel. Relatórios claros, estoque organizado e a recorrência de clientes aumentou muito com o programa de fidelidade.",
+    initials: "LF",
+  },
 ]
 
 export function Testimonials() {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null)
-
   return (
     <section className="bg-muted py-12 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -39,88 +48,46 @@ export function Testimonials() {
               Mais de 2.500 barbearias já transformaram sua gestão com Barbeiros.app.
             </p>
             <p className="mt-4 text-pretty text-sm sm:text-base leading-relaxed text-muted-foreground">
-              Confira os depoimentos de clientes e parceiros que já facilitaram a sua rotina de administração com o Barbeiros.app.
+              Confira os depoimentos de clientes e parceiros que já facilitaram a sua rotina de administração com o
+              Barbeiros.app.
             </p>
           </div>
 
-          {/* Video Testimonials */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-            {videoTestimonials.map((testimonial, index) => (
-              <div 
+          {/* Text Testimonials */}
+          <div className="grid gap-6 sm:grid-cols-2">
+            {testimonials.map((testimonial, index) => (
+              <div
                 key={index}
-                className="group flex flex-col overflow-hidden rounded-xl bg-card shadow-sm transition-all hover:shadow-md"
+                className="flex flex-col rounded-xl bg-card p-5 sm:p-6 shadow-sm transition-all hover:shadow-md"
               >
-                {/* Video Thumbnail */}
-                <button
-                  onClick={() => setActiveVideo(testimonial.videoId)}
-                  className="relative aspect-[4/3] w-full overflow-hidden bg-muted"
-                >
-                  <img
-                    src={testimonial.thumbnail}
-                    alt={`Depoimento de ${testimonial.name}`}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement
-                      target.src = `https://img.youtube.com/vi/${testimonial.videoId}/hqdefault.jpg`
-                    }}
-                  />
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/30">
-                    <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform group-hover:scale-110">
-                      <Play className="h-6 w-6 sm:h-7 sm:w-7 fill-[#2563ea] text-[#2563ea] ml-1" />
-                    </div>
-                  </div>
-                </button>
+                {/* Rating */}
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-[#2563ea] text-[#2563ea]" />
+                  ))}
+                </div>
 
-                {/* Content */}
-                <div className="flex flex-col p-4 sm:p-5">
-                  <h3 className="text-sm sm:text-base font-semibold text-foreground">
-                    {testimonial.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#2563ea] font-medium">
-                    {testimonial.role}
-                  </p>
-                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-4">
-                    {`"${testimonial.quote}"`}
-                  </p>
+                {/* Quote */}
+                <Quote className="mt-4 h-6 w-6 text-[#2563ea]/30" aria-hidden="true" />
+                <p className="mt-2 flex-1 text-pretty text-sm sm:text-base leading-relaxed text-muted-foreground">
+                  {`"${testimonial.quote}"`}
+                </p>
+
+                {/* Author */}
+                <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#2563ea] text-sm font-semibold text-white">
+                    {testimonial.initials}
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground">{testimonial.name}</h3>
+                    <p className="text-xs sm:text-sm font-medium text-[#2563ea]">{testimonial.role}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Video Modal */}
-      {activeVideo && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setActiveVideo(null)}
-        >
-          <div 
-            className="relative w-full max-w-4xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setActiveVideo(null)}
-              className="absolute -top-10 right-0 rounded-full p-2 text-white transition-colors hover:bg-white/10"
-            >
-              <X className="h-6 w-6" />
-            </button>
-
-            {/* Video */}
-            <div className="aspect-video w-full overflow-hidden rounded-xl bg-black">
-              <iframe
-                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0`}
-                title="Video depoimento"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="h-full w-full"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   )
 }
